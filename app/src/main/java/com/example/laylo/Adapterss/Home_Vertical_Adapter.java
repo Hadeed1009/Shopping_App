@@ -15,12 +15,12 @@ import com.example.laylo.R;
 
 import java.util.ArrayList;
 
-public class Home_Horizontal_Adapter extends RecyclerView.Adapter<Home_Horizontal_Adapter.viewholder> {
+public class Home_Vertical_Adapter extends RecyclerView.Adapter<Home_Vertical_Adapter.viewholder>{
 
     ArrayList<HomeModel> list;
     Context context;
 
-    public Home_Horizontal_Adapter(ArrayList<HomeModel> list, Context context) {
+    public Home_Vertical_Adapter(ArrayList<HomeModel> list, Context context) {
         this.list = list;
         this.context = context;
     }
@@ -28,15 +28,15 @@ public class Home_Horizontal_Adapter extends RecyclerView.Adapter<Home_Horizonta
     @NonNull
     @Override
     public viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.sample_home_horizontal, parent, false);
-        return new viewholder(view);
+        View view = LayoutInflater.from(context).inflate(R.layout.sample_home_vertical_layout, parent, false);
+        return new Home_Vertical_Adapter.viewholder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull viewholder holder, int position) {
         HomeModel model = list.get(position);
-        holder.homeHorImage.setImageResource(model.getImage());
-        holder.homeHortext.setText(model.getText());
+        holder.homeVerImage.setImageResource(model.getImage());
+        holder.homeVertext.setText(model.getText());
     }
 
     @Override
@@ -44,14 +44,15 @@ public class Home_Horizontal_Adapter extends RecyclerView.Adapter<Home_Horizonta
         return list.size();
     }
 
+
     public class viewholder extends RecyclerView.ViewHolder{
 
-        ImageView homeHorImage;
-        TextView homeHortext;
+        ImageView homeVerImage;
+        TextView homeVertext;
         public viewholder(@NonNull View itemView) {
             super(itemView);
-            homeHorImage=itemView.findViewById(R.id.homeVerImage);
-            homeHortext=itemView.findViewById(R.id.homeVertext);
+            homeVerImage=itemView.findViewById(R.id.homeVerImage);
+            homeVertext=itemView.findViewById(R.id.homeVertext);
         }
     }
 }

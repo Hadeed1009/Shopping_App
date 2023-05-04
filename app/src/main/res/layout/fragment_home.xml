@@ -41,9 +41,14 @@
             android:textStyle="bold" />
 
         <LinearLayout
-            android:id="@+id/forYoulayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"></LinearLayout>
+            android:orientation="vertical">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/forYoulayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
     </LinearLayout>
 </FrameLayout>
