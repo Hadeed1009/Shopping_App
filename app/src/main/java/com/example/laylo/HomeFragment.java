@@ -1,5 +1,6 @@
 package com.example.laylo;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -14,6 +15,7 @@ import android.view.ViewGroup;
 import com.example.laylo.Adapterss.Category_Adapter;
 import com.example.laylo.Adapterss.Home_Horizontal_Adapter;
 import com.example.laylo.Adapterss.Home_Vertical_Adapter;
+import com.example.laylo.Classess.RecyclerItemClickListener;
 import com.example.laylo.Modelss.CategoryModels;
 import com.example.laylo.Modelss.HomeModel;
 
@@ -51,6 +53,25 @@ public class HomeFragment extends Fragment {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         rankingLayout.setLayoutManager(layoutManager);
 
+        //Touch lIstner on ranking layout
+        rankingLayout.addOnItemTouchListener(new RecyclerItemClickListener(getContext(), rankingLayout, new RecyclerItemClickListener.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                HomeModel homemodel = list.get(position);
+                Intent intent = new Intent(getContext(), ItemDescription.class);
+                intent.putExtra("image", homemodel.getImage());
+                intent.putExtra("text", homemodel.getText());
+                startActivity(intent);
+
+                //Toast.makeText(getContext(), "Item Clicked", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onLongItemClick(View view, int position) {
+                //Toast.makeText(getContext(), "Item Long Clicked", Toast.LENGTH_SHORT).show();
+            }
+        }));
+
         //Recycle view for Just For You Layout
         RecyclerView forYoulayout=view.findViewById(R.id.forYoulayout);
 
@@ -69,6 +90,25 @@ public class HomeFragment extends Fragment {
 
         GridLayoutManager layoutManager2 = new GridLayoutManager(getContext(), 2);
         forYoulayout.setLayoutManager(layoutManager2);
+
+        //Touch lIstner on For You layout
+        forYoulayout.addOnItemTouchListener(new RecyclerItemClickListener(getContext(), forYoulayout, new RecyclerItemClickListener.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                HomeModel homemodel = list.get(position);
+                Intent intent = new Intent(getContext(), ItemDescription.class);
+                intent.putExtra("image", homemodel.getImage());
+                intent.putExtra("text", homemodel.getText());
+                startActivity(intent);
+
+                //Toast.makeText(getContext(), "Item Clicked", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onLongItemClick(View view, int position) {
+                //Toast.makeText(getContext(), "Item Long Clicked", Toast.LENGTH_SHORT).show();
+            }
+        }));
         return view;
     }
 }
