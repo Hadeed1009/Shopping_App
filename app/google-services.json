@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "43987957885",
+    "project_id": "lay-lo-230c8",
+    "storage_bucket": "lay-lo-230c8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:43987957885:android:81d8bc2a73838a06191914",
+        "android_client_info": {
+          "package_name": "com.example.laylo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "43987957885-qtjtkbdibro1gpancnq6j8pbdcv9gvu2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlTYeLiFRde0F2PNYbp4p7rS3gYdLM6hM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "43987957885-qtjtkbdibro1gpancnq6j8pbdcv9gvu2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -39,7 +39,8 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
@@ -107,15 +108,11 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textView10"
+                android:id="@+id/description"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
-                android:text="Sodhi to Babar Azam, FOUR runs Shot! Given a bit of air on a full length just outside off stump. Babar plants his front foot and bangs it over the bowler's head for four! اردو میں In English Specify the attribute 'orientation' of the LinearLayout to 'vertical'. Now any number of elements put inside the LinearLayout will be in vertical order. To align the elements at the bottom of the screen, use ConstraintLayout and add constraints to the LinearLayout to attach it with the bottom of the screen. To set an item at the bottom of a LinearLayout in Android, you can use the android:layout_gravity attribute with a value of bottom for that particular item.
-
-
-Here is an example XML code snippet that demonstrates how to set a TextView at the bottom of a LinearLayout:"
                 android:textColor="#000000"
                 android:textSize="16sp" />
 
@@ -125,6 +122,7 @@ Here is an example XML code snippet that demonstrates how to set a TextView at t
 <!--    </LinearLayout>-->
 
     <LinearLayout
+        android:id="@+id/linearLayout4"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_gravity="bottom"
@@ -144,7 +142,7 @@ Here is an example XML code snippet that demonstrates how to set a TextView at t
             android:text="ADD TO CART" />
 
         <Button
-            android:id="@+id/button5"
+            android:id="@+id/btn_buy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"

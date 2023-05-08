@@ -38,14 +38,14 @@ public class HomeFragment extends Fragment {
         RecyclerView rankingLayout=view.findViewById(R.id.rankingLayout);
 
         ArrayList<HomeModel>list=new ArrayList<>();
-        list.add(new HomeModel(R.drawable.men_category,"MEN"));
-        list.add(new HomeModel(R.drawable.women_category,"WOMEN"));
-        list.add(new HomeModel(R.drawable.img,"KIDS"));
-        list.add(new HomeModel(R.drawable.image1, "PK Shirt"));
-        list.add(new HomeModel(R.drawable.image2, "Blue Shirt"));
-        list.add(new HomeModel(R.drawable.image3, "Red Shirt"));
-        list.add(new HomeModel(R.drawable.image4, "Grey Shirt"));
-        list.add(new HomeModel(R.drawable.image5, "White Shirt"));
+        list.add(new HomeModel(R.drawable.men1,"MEN"));
+        list.add(new HomeModel(R.drawable.men2,"WOMEN"));
+        list.add(new HomeModel(R.drawable.men3,"KIDS"));
+        list.add(new HomeModel(R.drawable.men4, "PK Shirt"));
+        list.add(new HomeModel(R.drawable.men5, "Blue Shirt"));
+        list.add(new HomeModel(R.drawable.men6, "Red Shirt"));
+        list.add(new HomeModel(R.drawable.men7, "Grey Shirt"));
+        list.add(new HomeModel(R.drawable.men8, "White Shirt"));
 
         Home_Horizontal_Adapter adapter=new Home_Horizontal_Adapter(list,getContext());
         rankingLayout.setAdapter(adapter);
@@ -78,7 +78,7 @@ public class HomeFragment extends Fragment {
         ArrayList<HomeModel> list2=new ArrayList<>();
         list2.add(new HomeModel(R.drawable.men_category,"MEN"));
         list2.add(new HomeModel(R.drawable.women_category,"WOMEN"));
-        list2.add(new HomeModel(R.drawable.img,"KIDS"));
+        list2.add(new HomeModel(R.drawable.kids_category,"KIDS"));
         list2.add(new HomeModel(R.drawable.image1, "PK Shirt"));
         list2.add(new HomeModel(R.drawable.image2, "Blue Shirt"));
         list2.add(new HomeModel(R.drawable.image3, "Red Shirt"));
@@ -95,7 +95,7 @@ public class HomeFragment extends Fragment {
         forYoulayout.addOnItemTouchListener(new RecyclerItemClickListener(getContext(), forYoulayout, new RecyclerItemClickListener.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                HomeModel homemodel = list.get(position);
+                HomeModel homemodel = list2.get(position);
                 Intent intent = new Intent(getContext(), ItemDescription.class);
                 intent.putExtra("image", homemodel.getImage());
                 intent.putExtra("text", homemodel.getText());
