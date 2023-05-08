@@ -10,7 +10,7 @@ import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
 
-    ImageView home1,category,search1,profile;
+    ImageView home1,category,search1,profile,cart,more;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -21,7 +21,8 @@ public class MainActivity extends AppCompatActivity {
         home1=findViewById(R.id.home1);
         category=findViewById(R.id.category);
         profile=findViewById(R.id.profile);
-
+        cart= findViewById(R.id.cart);
+        more = findViewById(R.id.more);
         home1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -48,6 +49,27 @@ public class MainActivity extends AppCompatActivity {
                 ProfileFragment profileFragment=new ProfileFragment();
                 FragmentTransaction transaction=getSupportFragmentManager().beginTransaction();
                 transaction.replace(R.id.fragmentLayout, profileFragment);
+                transaction.commit();
+            }
+        });
+
+        cart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                CartFragment cartFragment=new CartFragment();
+                FragmentTransaction transaction=getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.fragmentLayout, cartFragment);
+                transaction.commit();
+            }
+        });
+
+        //Currently adding onclick for initial cart fragment view in this button
+        more.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                InitialCartFragment initialCartFragment = new InitialCartFragment();
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.fragmentLayout,initialCartFragment);
                 transaction.commit();
             }
         });

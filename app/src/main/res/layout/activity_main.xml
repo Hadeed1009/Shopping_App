@@ -64,14 +64,14 @@
             app:srcCompat="@drawable/person" />
 
         <ImageView
-            android:id="@+id/imageView4"
+            android:id="@+id/cart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             app:srcCompat="@drawable/shopping_cart" />
 
         <ImageView
-            android:id="@+id/imageView6"
+            android:id="@+id/more"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
