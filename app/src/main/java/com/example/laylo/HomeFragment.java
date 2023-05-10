@@ -38,14 +38,14 @@ public class HomeFragment extends Fragment {
         RecyclerView rankingLayout=view.findViewById(R.id.rankingLayout);
 
         ArrayList<HomeModel>list=new ArrayList<>();
-        list.add(new HomeModel(R.drawable.men1,"MEN"));
-        list.add(new HomeModel(R.drawable.men2,"WOMEN"));
-        list.add(new HomeModel(R.drawable.men3,"KIDS"));
-        list.add(new HomeModel(R.drawable.men4, "PK Shirt"));
-        list.add(new HomeModel(R.drawable.men5, "Blue Shirt"));
-        list.add(new HomeModel(R.drawable.men6, "Red Shirt"));
-        list.add(new HomeModel(R.drawable.men7, "Grey Shirt"));
-        list.add(new HomeModel(R.drawable.men8, "White Shirt"));
+//        list.add(new HomeModel(R.drawable.men1,"MEN"));
+//        list.add(new HomeModel(R.drawable.men2,"WOMEN"));
+//        list.add(new HomeModel(R.drawable.men3,"KIDS"));
+//        list.add(new HomeModel(R.drawable.men4, "PK Shirt"));
+//        list.add(new HomeModel(R.drawable.men5, "Blue Shirt"));
+//        list.add(new HomeModel(R.drawable.men6, "Red Shirt"));
+//        list.add(new HomeModel(R.drawable.men7, "Grey Shirt"));
+//        list.add(new HomeModel(R.drawable.men8, "White Shirt"));
 
         Home_Horizontal_Adapter adapter=new Home_Horizontal_Adapter(list,getContext());
         rankingLayout.setAdapter(adapter);

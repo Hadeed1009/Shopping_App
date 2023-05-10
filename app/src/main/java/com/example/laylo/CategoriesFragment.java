@@ -1,5 +1,6 @@
 package com.example.laylo;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,8 +11,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.example.laylo.Adapterss.Category_Adapter;
+import com.example.laylo.Classess.RecyclerItemClickListener;
 import com.example.laylo.Modelss.CategoryModels;
 
 import java.util.ArrayList;
@@ -41,6 +44,22 @@ public class CategoriesFragment extends Fragment {
 
         LinearLayoutManager layoutManager=new LinearLayoutManager(getContext());
         category_recycler.setLayoutManager(layoutManager);
+
+        category_recycler.addOnItemTouchListener(new RecyclerItemClickListener(getContext(), category_recycler, new RecyclerItemClickListener.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                CategoryModels categoryModels=list.get(position);
+                Intent intent=new Intent(getContext(),CategoryListActivity.class);
+                intent.putExtra("position",position);
+                Toast.makeText(getContext(), "position"+position, Toast.LENGTH_SHORT).show();
+                startActivity(intent);
+            }
+
+            @Override
+            public void onLongItemClick(View view, int position) {
+
+            }
+        }));
 
         return view;
     }

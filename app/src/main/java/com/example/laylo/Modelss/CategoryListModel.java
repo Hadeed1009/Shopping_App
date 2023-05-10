@@ -4,8 +4,15 @@ import android.widget.ImageView;
 
 public class CategoryListModel {
     int image;
-    String name;
-    String price;
+    String name,price,size,description;
+
+    public CategoryListModel(int image, String name, String price, String size, String description) {
+        this.image = image;
+        this.name = name;
+        this.price = price;
+        this.size = size;
+        this.description = description;
+    }
 
     public CategoryListModel(int image, String name, String price) {
         this.image = image;
@@ -35,5 +42,21 @@ public class CategoryListModel {
 
     public void setPrice(String price) {
         this.price = price;
+    }
+
+    public String getSize() {
+        return size;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

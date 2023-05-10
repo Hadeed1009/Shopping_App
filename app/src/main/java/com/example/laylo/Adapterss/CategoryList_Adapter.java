@@ -20,10 +20,12 @@ public class CategoryList_Adapter extends RecyclerView.Adapter<CategoryList_Adap
 
     ArrayList<CategoryListModel> list;
     Context context;
+    int itemCount;
 
-    public CategoryList_Adapter(ArrayList<CategoryListModel> list, Context context) {
+    public CategoryList_Adapter(ArrayList<CategoryListModel> list, Context context, int itemCount) {
         this.list = list;
         this.context = context;
+        this.itemCount = itemCount;
     }
 
     @NonNull
@@ -43,7 +45,7 @@ public class CategoryList_Adapter extends RecyclerView.Adapter<CategoryList_Adap
 
     @Override
     public int getItemCount() {
-        return list.size();
+        return itemCount;
     }
 
     public class viewholder extends RecyclerView.ViewHolder{
