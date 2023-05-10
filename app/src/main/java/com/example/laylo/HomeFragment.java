@@ -1,6 +1,7 @@
 package com.example.laylo;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -16,6 +17,7 @@ import com.example.laylo.Adapterss.Category_Adapter;
 import com.example.laylo.Adapterss.Home_Horizontal_Adapter;
 import com.example.laylo.Adapterss.Home_Vertical_Adapter;
 import com.example.laylo.Classess.RecyclerItemClickListener;
+import com.example.laylo.Modelss.CategoryListModel;
 import com.example.laylo.Modelss.CategoryModels;
 import com.example.laylo.Modelss.HomeModel;
 
@@ -38,14 +40,16 @@ public class HomeFragment extends Fragment {
         RecyclerView rankingLayout=view.findViewById(R.id.rankingLayout);
 
         ArrayList<HomeModel>list=new ArrayList<>();
-//        list.add(new HomeModel(R.drawable.men1,"MEN"));
-//        list.add(new HomeModel(R.drawable.men2,"WOMEN"));
-//        list.add(new HomeModel(R.drawable.men3,"KIDS"));
-//        list.add(new HomeModel(R.drawable.men4, "PK Shirt"));
-//        list.add(new HomeModel(R.drawable.men5, "Blue Shirt"));
-//        list.add(new HomeModel(R.drawable.men6, "Red Shirt"));
-//        list.add(new HomeModel(R.drawable.men7, "Grey Shirt"));
-//        list.add(new HomeModel(R.drawable.men8, "White Shirt"));
+        ArrayList<HomeModel>list1= new ArrayList<>();
+        new MenClass();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            MenClass.items.forEach((item) -> {
+                String imageName=item.image;
+                int resImageId=getResources().getIdentifier(imageName,"drawable",getActivity().getPackageName());
+                list.add(new HomeModel(resImageId, item.name));
+                list1.add(new HomeModel(resImageId, item.name, item.price, item.size, item.description));
+            });
+        }
 
         Home_Horizontal_Adapter adapter=new Home_Horizontal_Adapter(list,getContext());
         rankingLayout.setAdapter(adapter);
@@ -53,14 +57,17 @@ public class HomeFragment extends Fragment {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         rankingLayout.setLayoutManager(layoutManager);
 
-        //Touch lIstner on ranking layout
+        //Touch listner on ranking layout
         rankingLayout.addOnItemTouchListener(new RecyclerItemClickListener(getContext(), rankingLayout, new RecyclerItemClickListener.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
                 HomeModel homemodel = list.get(position);
                 Intent intent = new Intent(getContext(), ItemDescription.class);
                 intent.putExtra("image", homemodel.getImage());
-                intent.putExtra("text", homemodel.getText());
+                intent.putExtra("name", homemodel.getName());
+                intent.putExtra("price", homemodel.getPrice());
+                intent.putExtra("size", homemodel.getSize());
+                intent.putExtra("description", homemodel.getDescription());
                 startActivity(intent);
 
                 //Toast.makeText(getContext(), "Item Clicked", Toast.LENGTH_SHORT).show();
@@ -76,14 +83,24 @@ public class HomeFragment extends Fragment {
         RecyclerView forYoulayout=view.findViewById(R.id.forYoulayout);
 
         ArrayList<HomeModel> list2=new ArrayList<>();
-        list2.add(new HomeModel(R.drawable.men_category,"MEN"));
-        list2.add(new HomeModel(R.drawable.women_category,"WOMEN"));
-        list2.add(new HomeModel(R.drawable.kids_category,"KIDS"));
-        list2.add(new HomeModel(R.drawable.image1, "PK Shirt"));
-        list2.add(new HomeModel(R.drawable.image2, "Blue Shirt"));
-        list2.add(new HomeModel(R.drawable.image3, "Red Shirt"));
-        list2.add(new HomeModel(R.drawable.image4, "Grey Shirt"));
-        list2.add(new HomeModel(R.drawable.image5, "White Shirt"));
+        ArrayList<HomeModel> list3=new ArrayList<>();
+        new KidsClass();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            KidsClass.items.forEach((item) -> {
+                String imageName=item.image;
+                int resImageId=getResources().getIdentifier(imageName,"drawable",getActivity().getPackageName());
+                list2.add(new HomeModel(resImageId, item.name));
+                list3.add(new HomeModel(resImageId, item.name, item.price, item.size, item.description));
+            });
+        }
+//        list2.add(new HomeModel(R.drawable.men_category,"MEN"));
+//        list2.add(new HomeModel(R.drawable.women_category,"WOMEN"));
+//        list2.add(new HomeModel(R.drawable.kids_category,"KIDS"));
+//        list2.add(new HomeModel(R.drawable.image1, "PK Shirt"));
+//        list2.add(new HomeModel(R.drawable.image2, "Blue Shirt"));
+//        list2.add(new HomeModel(R.drawable.image3, "Red Shirt"));
+//        list2.add(new HomeModel(R.drawable.image4, "Grey Shirt"));
+//        list2.add(new HomeModel(R.drawable.image5, "White Shirt"));
 
         Home_Vertical_Adapter adapter1=new Home_Vertical_Adapter(list2,getContext());
         forYoulayout.setAdapter(adapter1);
@@ -98,7 +115,10 @@ public class HomeFragment extends Fragment {
                 HomeModel homemodel = list2.get(position);
                 Intent intent = new Intent(getContext(), ItemDescription.class);
                 intent.putExtra("image", homemodel.getImage());
-                intent.putExtra("text", homemodel.getText());
+                intent.putExtra("name", homemodel.getName());
+                intent.putExtra("price", homemodel.getPrice());
+                intent.putExtra("size", homemodel.getSize());
+                intent.putExtra("description", homemodel.getDescription());
                 startActivity(intent);
 
                 //Toast.makeText(getContext(), "Item Clicked", Toast.LENGTH_SHORT).show();
