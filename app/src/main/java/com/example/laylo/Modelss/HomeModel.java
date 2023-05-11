@@ -10,6 +10,7 @@ public class HomeModel {
         this.image = image;
         this.name = name;
     }
+
     public HomeModel(int image, String name, String price, String size, String description) {
         this.image = image;
         this.name = name;
@@ -20,6 +21,10 @@ public class HomeModel {
 
     public int getImage() {
         return image;
+    }
+
+    public void setImage(int image) {
+        this.image = image;
     }
 
     public String getName() {
@@ -53,9 +58,4 @@ public class HomeModel {
     public void setDescription(String description) {
         this.description = description;
     }
-
-    public void setImage(int image) {
-        this.image = image;
-    }
-
 }

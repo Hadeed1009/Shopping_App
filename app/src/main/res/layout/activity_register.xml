@@ -11,7 +11,8 @@
         android:id="@+id/textView11"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/inter_bold"
         android:gravity="center"
         android:text="Lay Lo"
         android:textColor="#000000"
@@ -36,7 +37,8 @@
             android:id="@+id/textView16"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="25dp"
+            android:fontFamily="@font/inter_bold"
             android:text="Registration"
             android:textColor="#000000"
             android:textSize="20sp"
@@ -47,6 +49,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:fontFamily="@font/inter_bold"
             android:text="Name"
             android:textColor="#000000"
             android:textSize="16sp"
@@ -58,9 +61,11 @@
             android:layout_height="50dp"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
+            android:background="@drawable/shape_text"
             android:ems="10"
             android:hint="Enter Name"
             android:inputType="textPersonName"
+            android:paddingLeft="10dp"
             android:textColor="#000000"
             android:textColorHint="#8F8E8E" />
 
@@ -69,6 +74,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:fontFamily="@font/inter_bold"
             android:text="Email"
             android:textColor="#000000"
             android:textSize="16sp"
@@ -80,9 +86,11 @@
             android:layout_height="50dp"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
+            android:background="@drawable/shape_text"
             android:ems="10"
             android:hint="Enter Email"
             android:inputType="textEmailAddress"
+            android:paddingLeft="10dp"
             android:textColor="#000000"
             android:textColorHint="#8F8E8E" />
 
@@ -91,6 +99,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:fontFamily="@font/inter_bold"
             android:text="Address"
             android:textColor="#000000"
             android:textSize="16sp"
@@ -102,9 +111,11 @@
             android:layout_height="50dp"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
+            android:background="@drawable/shape_text"
             android:ems="10"
             android:hint="Enter Address"
             android:inputType="textEmailAddress"
+            android:paddingLeft="10dp"
             android:textColor="#000000"
             android:textColorHint="#8F8E8E" />
 
@@ -113,6 +124,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:fontFamily="@font/inter_bold"
             android:text="Password"
             android:textColor="#000000"
             android:textSize="16sp"
@@ -124,9 +136,11 @@
             android:layout_height="50dp"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
+            android:background="@drawable/shape_text"
             android:ems="10"
             android:hint="Enter Password"
             android:inputType="textPassword"
+            android:paddingLeft="10dp"
             android:textColor="#000000"
             android:textColorHint="#8F8E8E" />
 
@@ -135,6 +149,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:fontFamily="@font/inter_bold"
             android:text="Confirm Password"
             android:textColor="#000000"
             android:textSize="16sp"
@@ -146,9 +161,11 @@
             android:layout_height="50dp"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
+            android:background="@drawable/shape_text"
             android:ems="10"
             android:hint="Confirm Password"
             android:inputType="textPassword"
+            android:paddingLeft="10dp"
             android:textColor="#000000"
             android:textColorHint="#8F8E8E" />
 
@@ -156,7 +173,10 @@
             android:id="@+id/btn_signUp"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
             android:layout_marginTop="30dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/btn_bg"
             android:text="Sign Up" />
 
         <TextView
@@ -164,6 +184,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
+            android:fontFamily="@font/inter"
             android:gravity="center"
             android:text="Login"
             android:textColor="#000000"

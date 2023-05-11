@@ -71,9 +71,13 @@ public class Register extends AppCompatActivity {
             reg_password.setError("Password must be greater than 6 characters");
             reg_password.requestFocus();
         } else if (TextUtils.isEmpty(confirmpass)){
-            reg_confirmPassword.setError("Password is Required");
+            reg_confirmPassword.setError("Confirm Password is Required");
             reg_confirmPassword.requestFocus();
-        } else {
+        } else if (!pass.equals(confirmpass)) {
+            reg_confirmPassword.setError("Password and Confirm Password must be same");
+            reg_confirmPassword.requestFocus();
+        }
+         else {
             mAuth.createUserWithEmailAndPassword(mail,pass).addOnCompleteListener(task -> {
                 if(task.isSuccessful()){
                     Toast.makeText(Register.this, "User Created", Toast.LENGTH_SHORT).show();

@@ -20,9 +20,12 @@ public class Home_Horizontal_Adapter extends RecyclerView.Adapter<Home_Horizonta
     ArrayList<HomeModel> list;
     Context context;
 
-    public Home_Horizontal_Adapter(ArrayList<HomeModel> list, Context context) {
+    int itemCount;
+
+    public Home_Horizontal_Adapter(ArrayList<HomeModel> list, Context context, int itemCount) {
         this.list = list;
         this.context = context;
+        this.itemCount = itemCount;
     }
 
     @NonNull
@@ -36,12 +39,12 @@ public class Home_Horizontal_Adapter extends RecyclerView.Adapter<Home_Horizonta
     public void onBindViewHolder(@NonNull viewholder holder, int position) {
         HomeModel model = list.get(position);
         holder.homeHorImage.setImageResource(model.getImage());
-        holder.homeHortext.setText(model.getText());
+        holder.homeHortext.setText(model.getName());
     }
 
     @Override
     public int getItemCount() {
-        return list.size();
+        return itemCount;
     }
 
     public class viewholder extends RecyclerView.ViewHolder{

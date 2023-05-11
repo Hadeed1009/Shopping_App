@@ -17,8 +17,7 @@ import com.google.firebase.database.DatabaseReference;
 public class ItemDescription extends AppCompatActivity {
     DatabaseReference reference;
     ImageView item_image;
-    TextView item_name,custombar_text,item_description1,item_price,item_size;
-    Button btn_buy;
+    TextView item_name,custombar_text,item_description1,item_price,item_size,text_cart,text_buy;
     public static String item_name1;
     @SuppressLint("MissingInflatedId")
     @Override
@@ -32,13 +31,13 @@ public class ItemDescription extends AppCompatActivity {
         item_description1=findViewById(R.id.item_description1);
         item_price=findViewById(R.id.item_price);
         item_size=findViewById(R.id.item_size);
-        btn_buy=findViewById(R.id.btn_buy);
+        text_buy=findViewById(R.id.text_buy);
 
         int image = getIntent().getIntExtra("image",0);
         item_image.setImageResource(image);
 
         String name = getIntent().getStringExtra("name");
-        item_description1.setText(name);
+        item_name.setText(name);
         item_name1=name;
         custombar_text.setText(name);
         //
@@ -47,6 +46,9 @@ public class ItemDescription extends AppCompatActivity {
 
         String size = getIntent().getStringExtra("size");
         item_size.setText(size);
+
+        String price = getIntent().getStringExtra("price");
+        item_price.setText("Rs: "+price);
 
 //        int size = getIntent().getIntExtra("size",0);
 //        item_image.setImageResource(size);
@@ -76,7 +78,7 @@ public class ItemDescription extends AppCompatActivity {
 //            }
 //        });
 
-        btn_buy.setOnClickListener(new View.OnClickListener() {
+        text_buy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 new AlertDialog.Builder(ItemDescription.this)
@@ -97,7 +99,6 @@ public class ItemDescription extends AppCompatActivity {
                         .show();
             }
         });
-
 
 
     }

@@ -19,10 +19,12 @@ public class Home_Vertical_Adapter extends RecyclerView.Adapter<Home_Vertical_Ad
 
     ArrayList<HomeModel> list;
     Context context;
+    int itemCount;
 
-    public Home_Vertical_Adapter(ArrayList<HomeModel> list, Context context) {
+    public Home_Vertical_Adapter(ArrayList<HomeModel> list, Context context, int itemCount) {
         this.list = list;
         this.context = context;
+        this.itemCount = itemCount;
     }
 
     @NonNull
@@ -36,12 +38,12 @@ public class Home_Vertical_Adapter extends RecyclerView.Adapter<Home_Vertical_Ad
     public void onBindViewHolder(@NonNull viewholder holder, int position) {
         HomeModel model = list.get(position);
         holder.homeVerImage.setImageResource(model.getImage());
-        holder.homeVertext.setText(model.getText());
+        holder.homeVertext.setText(model.getName());
     }
 
     @Override
     public int getItemCount() {
-        return list.size();
+        return itemCount;
     }
 
 

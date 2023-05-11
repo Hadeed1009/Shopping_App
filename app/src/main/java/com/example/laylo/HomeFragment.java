@@ -17,7 +17,6 @@ import com.example.laylo.Adapterss.Category_Adapter;
 import com.example.laylo.Adapterss.Home_Horizontal_Adapter;
 import com.example.laylo.Adapterss.Home_Vertical_Adapter;
 import com.example.laylo.Classess.RecyclerItemClickListener;
-import com.example.laylo.Modelss.CategoryListModel;
 import com.example.laylo.Modelss.CategoryModels;
 import com.example.laylo.Modelss.HomeModel;
 
@@ -50,18 +49,26 @@ public class HomeFragment extends Fragment {
                 list1.add(new HomeModel(resImageId, item.name, item.price, item.size, item.description));
             });
         }
+//        list.add(new HomeModel(R.drawable.men1,"MEN"));
+//        list.add(new HomeModel(R.drawable.men2,"WOMEN"));
+//        list.add(new HomeModel(R.drawable.men3,"KIDS"));
+//        list.add(new HomeModel(R.drawable.men4, "PK Shirt"));
+//        list.add(new HomeModel(R.drawable.men5, "Blue Shirt"));
+//        list.add(new HomeModel(R.drawable.men6, "Red Shirt"));
+//        list.add(new HomeModel(R.drawable.men7, "Grey Shirt"));
+//        list.add(new HomeModel(R.drawable.men8, "White Shirt"));
 
-        Home_Horizontal_Adapter adapter=new Home_Horizontal_Adapter(list,getContext());
+        Home_Horizontal_Adapter adapter=new Home_Horizontal_Adapter(list,getContext(),10);
         rankingLayout.setAdapter(adapter);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         rankingLayout.setLayoutManager(layoutManager);
 
-        //Touch listner on ranking layout
+        //Touch lIstner on ranking layout
         rankingLayout.addOnItemTouchListener(new RecyclerItemClickListener(getContext(), rankingLayout, new RecyclerItemClickListener.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                HomeModel homemodel = list.get(position);
+                HomeModel homemodel = list1.get(position);
                 Intent intent = new Intent(getContext(), ItemDescription.class);
                 intent.putExtra("image", homemodel.getImage());
                 intent.putExtra("name", homemodel.getName());
@@ -93,6 +100,7 @@ public class HomeFragment extends Fragment {
                 list3.add(new HomeModel(resImageId, item.name, item.price, item.size, item.description));
             });
         }
+
 //        list2.add(new HomeModel(R.drawable.men_category,"MEN"));
 //        list2.add(new HomeModel(R.drawable.women_category,"WOMEN"));
 //        list2.add(new HomeModel(R.drawable.kids_category,"KIDS"));
@@ -102,7 +110,7 @@ public class HomeFragment extends Fragment {
 //        list2.add(new HomeModel(R.drawable.image4, "Grey Shirt"));
 //        list2.add(new HomeModel(R.drawable.image5, "White Shirt"));
 
-        Home_Vertical_Adapter adapter1=new Home_Vertical_Adapter(list2,getContext());
+        Home_Vertical_Adapter adapter1=new Home_Vertical_Adapter(list2,getContext(),15);
         forYoulayout.setAdapter(adapter1);
 
         GridLayoutManager layoutManager2 = new GridLayoutManager(getContext(), 2);
@@ -120,7 +128,6 @@ public class HomeFragment extends Fragment {
                 intent.putExtra("size", homemodel.getSize());
                 intent.putExtra("description", homemodel.getDescription());
                 startActivity(intent);
-
                 //Toast.makeText(getContext(), "Item Clicked", Toast.LENGTH_SHORT).show();
             }
 
