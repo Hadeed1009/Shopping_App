@@ -39,7 +39,6 @@ public class MenClass {
         items.add(item13);
         items.add(item14);
         items.add(item15);
-
     }
 
 }

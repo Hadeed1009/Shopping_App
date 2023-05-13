@@ -1,23 +1,35 @@
 package com.example.laylo;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.laylo.Adapterss.Cart_Adapter;
+import com.example.laylo.Modelss.Cart;
 import com.example.laylo.Modelss.CartModel;
+import com.example.laylo.Modelss.CategoryListModel;
+import com.example.laylo.Modelss.cartItem;
 
 import java.util.ArrayList;
 
 public class CartFragment extends Fragment {
-
+    TextView subTotal,discount,totalAmount;
+    int Total=0;
     public CartFragment() {
         // Required empty public constructor
     }
@@ -29,24 +41,114 @@ public class CartFragment extends Fragment {
         View view= inflater.inflate(R.layout.fragment_cart, container, false);
         @SuppressLint({"MissingInflatedId", "LocalSuppress"})
         RecyclerView cart_recycler=view.findViewById(R.id.cart_recycler);
+//        TextView subTotal,discount,totalAmount;
+//        int Total=0;
 
-        ArrayList<CartModel> list = new ArrayList<>();
-        list.add(new CartModel(R.drawable.kids_category,R.drawable.increment,R.drawable.decrement,"One Cutie has been added to your cart!","2 years old","RS 1349.00","1"));
-        list.add(new CartModel(R.drawable.women_category,R.drawable.increment,R.drawable.decrement,"Beautiful!","20+ years old","RS 2349.00","4"));
-        list.add(new CartModel(R.drawable.image3,R.drawable.increment,R.drawable.decrement,"Hehehehe!","30 years old","RS 1349.00","2"));
-//        list.add(new CartModel(R.drawable.kids_category,R.drawable.increment,R.drawable.decrement,"One Cutie has been added to your cart!","2 years old","RS 1349.00","1"));
+        //In case cart is empty
+        if(Cart.cartItems.size()==0)
+        {
+            InitialCartFragment initialCartFragment = new InitialCartFragment();
+            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+            FragmentTransaction transaction = fragmentManager.beginTransaction();
+            transaction.replace(R.id.fragmentLayout, initialCartFragment);
+            transaction.commit();
+        }
+        else {
+            //In case it is not!
+            ArrayList<CartModel> list = new ArrayList<>();
+//        list.add(new CartModel(R.drawable.kids_category,R.drawable.increment,R.drawable.decrement,"One cutie added!","2 years old","RS 1349.00","1"));
 //        list.add(new CartModel(R.drawable.women_category,R.drawable.increment,R.drawable.decrement,"Beautiful!","20+ years old","RS 2349.00","4"));
-//        list.add(new CartModel(R.drawable.image3,R.drawable.increment,R.drawable.decrement,"Hehehehe!","30 years old","RS 1349.00","2"));
-//        list.add(new CartModel(R.drawable.kids_category,R.drawable.increment,R.drawable.decrement,"One Cutie has been added to your cart!","2 years old","RS 1349.00","1"));
-//        list.add(new CartModel(R.drawable.women_category,R.drawable.increment,R.drawable.decrement,"Beautiful!","20+ years old","RS 2349.00","4"));
-//        list.add(new CartModel(R.drawable.image3,R.drawable.increment,R.drawable.decrement,"Hehehehe!","30 years old","RS 1349.00","2"));
+//        list.add(new CartModel(R.drawable.men_category,R.drawable.increment,R.drawable.decrement,"Hehehehe!","30 years old","RS 1349.00","2"));
+//            new Cart();
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                Cart.cartItems.forEach((item) -> {
+                    String imageName = item.image;
+                    int resImageId = getResources().getIdentifier(imageName, "drawable", getActivity().getPackageName());
+                    list.add(new CartModel(resImageId, item.name, item.size, item.price, item.quantity));
+                });
+            }
+//        if(cart.menCart.isEmpty() && cart.womenCart.isEmpty() && cart.kidsCart.isEmpty())
+//        {
+////            Intent intent = new Intent(getContext(), InitialCartFragment.class);
+////            startActivity(intent);
+//            InitialCartFragment initialCartFragment = new InitialCartFragment();
+//            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+//            FragmentTransaction transaction = fragmentManager.beginTransaction();
+//            transaction.replace(R.id.fragmentLayout, initialCartFragment);
+//            transaction.commit();
+//        }
+//        else{
+//            if(!cart.menCart.isEmpty()){
+//                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+//                    Cart_Adapter adapter= new Cart_Adapter(cart.menCart,getContext());
+//                    cart_recycler.setAdapter(adapter);
+////                    cart.menCart.forEach((item)->{
+//////                        String imageName=item.image;
+////                        //Instead of adding item1,item2 in menCart why not add all the details at the same time and get them printed here!
+////                        int resImageId=getResources().getIdentifier(imageName,"drawable",getActivity().getPackageName());
+////                        list.add(new CartModel(R.drawable.kids_category,R.drawable.increment,R.drawable.decrement,"One cutie added!","2 years old","RS 1349.00","1"));
+////                    });
+//
+//                }
+//            }
+//            if(!cart.womenCart.isEmpty()){
+//                Cart_Adapter adapter= new Cart_Adapter(cart.womenCart,getContext());
+//                cart_recycler.setAdapter(adapter);
+//            }
+//            if(!cart.kidsCart.isEmpty()){
+//                Cart_Adapter adapter= new Cart_Adapter(cart.kidsCart,getContext());
+//                cart_recycler.setAdapter(adapter);
+//            }
+// //       }
 
-        Cart_Adapter adapter= new Cart_Adapter(list,getContext());
-        cart_recycler.setAdapter(adapter);
-
+            Cart_Adapter adapter = new Cart_Adapter(list, getContext());
+            cart_recycler.setAdapter(adapter);
+        }
         LinearLayoutManager layoutManager=new LinearLayoutManager(getContext());
         cart_recycler.setLayoutManager(layoutManager);
 
+        //Order Details
+        subTotal= view.findViewById(R.id.subTotal);
+        discount= view.findViewById(R.id.Discount);
+        totalAmount= view.findViewById(R.id.totalPrice);
+            int New_Total=OrderDetails(Total);
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+//              for(cartItem element : Cart.cartItems){ //loop to iterate through cart
+//                 int Price =Integer.parseInt(element.price);
+//                  Total += Price ;
+//              }
+//        }
+
+        subTotal.setText("Rs: "+String.format("%,d",New_Total)+".00");
+        discount.setText("Rs: "+"0.00");
+        totalAmount.setText("Rs: "+String.format("%,d",New_Total)+".00");
+
+        Button placeOrder= view.findViewById(R.id.placeOrder);
+        placeOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//               Checking If Arraylist methods are working
+                new Cart();
+                Cart.cartItems.clear();
+
+//                Go to Address fragment
+//                AddressBottomSheet addressBottomSheet=new AddressBottomSheet();
+//                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+//                addressBottomSheet.show(getSupportFragmentManager(),"AddressBottomSheet");
+//                Toast.makeText(getContext(),"BUTTON", Toast.LENGTH_SHORT).show();
+            }
+        });
+
         return view;
+    }
+
+    private int OrderDetails(int Total) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            for(cartItem element : Cart.cartItems){ //loop to iterate through cart
+                int Price =Integer.parseInt(element.price);
+                Total += Price ;
+            }
+        }
+        return Total;
     }
 }

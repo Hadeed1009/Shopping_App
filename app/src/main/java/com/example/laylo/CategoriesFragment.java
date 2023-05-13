@@ -51,7 +51,7 @@ public class CategoriesFragment extends Fragment {
                 CategoryModels categoryModels=list.get(position);
                 Intent intent=new Intent(getContext(),CategoryListActivity.class);
                 intent.putExtra("position",position);
-                Toast.makeText(getContext(), "position"+position, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getContext(), "position"+ position, Toast.LENGTH_SHORT).show();
                 startActivity(intent);
             }
 

@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.laylo.Adapterss.Category_Adapter;
 import com.example.laylo.Adapterss.Home_Horizontal_Adapter;
@@ -75,8 +76,11 @@ public class HomeFragment extends Fragment {
                 intent.putExtra("price", homemodel.getPrice());
                 intent.putExtra("size", homemodel.getSize());
                 intent.putExtra("description", homemodel.getDescription());
+                intent.putExtra("Position", ++position); //item position
+                intent.putExtra("position",0); //men category=0
                 startActivity(intent);
 
+//                Toast.makeText(getContext(), "Item Clicked hehe"+ ++position, Toast.LENGTH_SHORT).show();
                 //Toast.makeText(getContext(), "Item Clicked", Toast.LENGTH_SHORT).show();
             }
 
@@ -100,7 +104,6 @@ public class HomeFragment extends Fragment {
                 list3.add(new HomeModel(resImageId, item.name, item.price, item.size, item.description));
             });
         }
-
 //        list2.add(new HomeModel(R.drawable.men_category,"MEN"));
 //        list2.add(new HomeModel(R.drawable.women_category,"WOMEN"));
 //        list2.add(new HomeModel(R.drawable.kids_category,"KIDS"));
@@ -120,15 +123,17 @@ public class HomeFragment extends Fragment {
         forYoulayout.addOnItemTouchListener(new RecyclerItemClickListener(getContext(), forYoulayout, new RecyclerItemClickListener.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                HomeModel homemodel = list2.get(position);
+                HomeModel homemodel = list3.get(position);
                 Intent intent = new Intent(getContext(), ItemDescription.class);
                 intent.putExtra("image", homemodel.getImage());
                 intent.putExtra("name", homemodel.getName());
                 intent.putExtra("price", homemodel.getPrice());
                 intent.putExtra("size", homemodel.getSize());
                 intent.putExtra("description", homemodel.getDescription());
+                intent.putExtra("Position",++position); //item position
+                intent.putExtra("position",2); //kids category=2
                 startActivity(intent);
-                //Toast.makeText(getContext(), "Item Clicked", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getContext(), "Item Clicked"+ ++position, Toast.LENGTH_SHORT).show();
             }
 
             @Override

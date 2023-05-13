@@ -10,5 +10,4 @@ public class Item {
         this.size = size;
         this.description = description;
     }
-
 }

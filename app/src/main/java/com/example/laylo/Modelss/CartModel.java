@@ -1,17 +1,25 @@
 package com.example.laylo.Modelss;
 
 public class CartModel {
-    int img,img2,img3;
-    String text, text2, text3, text4;
+    int img, img_incr, img_decr;
+    String name, size, price, quantity;
 
-    public CartModel(int img, int img2, int img3, String text, String text2, String text3, String text4) {
+    public CartModel(int img, int img_incr, int img_decr, String name, String size, String price, String quantity) {
         this.img = img;
-        this.img2 = img2;
-        this.img3 = img3;
-        this.text = text;
-        this.text2 = text2;
-        this.text3 = text3;
-        this.text4 = text4;
+        this.img_incr = img_incr;
+        this.img_decr = img_decr;
+        this.name = name;
+        this.size = size;
+        this.price = price;
+        this.quantity = quantity;
+    }
+
+    public CartModel(int img, String name, String size, String price, String quantity) {
+        this.img = img;
+        this.name = name;
+        this.size = size;
+        this.price = price;
+        this.quantity = quantity;
     }
 
     public int getImg() {
@@ -21,46 +29,55 @@ public class CartModel {
         this.img = img;
     }
 
-    public String getText() {
-        return text;
-    }
-    public void setText(String text) {
-        this.text = text;
+    public int getImg_incr() {
+        return img_incr;
     }
 
-    public int getImg2() {
-        return img2;
-    }
-    public void setImg2(int img2) {
-        this.img2 = img2;
+    public void setImg_incr(int img_incr) {
+        this.img_incr = img_incr;
     }
 
-    public int getImg3() {
-        return img3;
+    public String getName() {
+        return name;
     }
-    public void setImg3(int img3) {
-        this.img3 = img3;
-    }
-
-    public String getText2() {
-        return text2;
-    }
-    public void setText2(String text2) {
-        this.text2 = text2;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getText3() {
-        return text3;
+
+
+    public int getImg_decr() {
+        return img_decr;
     }
-    public void setText3(String text3) {
-        this.text3 = text3;
+    public void setImg_decr(int img_decr) {
+        this.img_decr = img_decr;
     }
 
-    public String getText4() {
-        return text4;
+    public String getSize() {
+        return size;
+    }
+    public void setSize(String size) {
+        this.size = size;
     }
 
-    public void setText4(String text4) {
-        this.text4 = text4;
+    public String getPrice() {
+        return price;
     }
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public String getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(String quantity) {
+        this.quantity = quantity;
+    }
+
+//    @Override
+
+//    public String toString() {
+//        return "Student [name=" + name + ", size=" + size + ", price="+ price +", quantity="+quantity+" ]";
+//    }
 }

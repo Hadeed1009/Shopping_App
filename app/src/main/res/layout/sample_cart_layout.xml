@@ -8,6 +8,8 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:padding="10dp"
         app:cardCornerRadius="10dp"
         app:cardMaxElevation="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -18,11 +20,12 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_margin="5dp"
             android:orientation="horizontal">
 
             <ImageView
                 android:id="@+id/item_image"
-                android:layout_width="wrap_content"
+                android:layout_width="350dp"
                 android:layout_height="130dp"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
@@ -36,7 +39,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/item_text"
+                    android:id="@+id/item_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
@@ -44,17 +47,17 @@
                     android:layout_marginEnd="10dp"
                     android:layout_weight="5"
                     android:gravity="start"
-                    android:text="One cutie has been added to your cart !"
-                    android:textColor="@color/teal_700"
-                    android:textSize="16sp" />
+                    android:text="One cutie added to cart !"
+                    android:textColor="@color/orange"
+                    android:textSize="15sp" />
 
                 <TextView
-                    android:id="@+id/item_description"
+                    android:id="@+id/item_size"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
                     android:layout_marginEnd="10dp"
-                    android:layout_marginBottom="15dp"
+                    android:layout_marginBottom="10dp"
                     android:layout_weight="5"
                     android:gravity="start"
                     android:text="2 year old"
@@ -63,9 +66,10 @@
                 <TextView
                     android:id="@+id/item_price"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="25dp"
                     android:layout_marginStart="5dp"
                     android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="5dp"
                     android:layout_weight="5"
                     android:gravity="start"
                     android:text="Rs 1349.00"
@@ -74,11 +78,13 @@
                     android:textStyle="bold" />
 
                 <LinearLayout
-                    android:layout_width="160dp"
+                    android:layout_width="130dp"
                     android:layout_height="20dp"
                     android:layout_marginStart="5dp"
                     android:layout_weight="3"
-                    android:orientation="horizontal">
+                    android:background="#FF9800"
+                    android:orientation="horizontal"
+                    android:padding="2dp">
 
                     <ImageView
                         android:id="@+id/increment"
@@ -92,13 +98,14 @@
 
                     <TextView
                         android:id="@+id/item_qty"
-                        android:layout_width="wrap_content"
-                        android:layout_height="30dp"
+                        android:layout_width="20dp"
+                        android:layout_height="21dp"
                         android:layout_weight="1"
+                        android:background="#C5C1C1"
                         android:gravity="center"
                         android:text="1"
                         android:textColor="@color/black"
-                        android:textSize="20sp"
+                        android:textSize="16sp"
                         android:textStyle="bold" />
 
                     <ImageView

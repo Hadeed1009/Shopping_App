@@ -67,10 +67,10 @@ public class MainActivity extends AppCompatActivity {
         more.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                InitialCartFragment initialCartFragment = new InitialCartFragment();
-                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.fragmentLayout,initialCartFragment);
-                transaction.commit();
+//                InitialCartFragment initialCartFragment = new InitialCartFragment();
+//                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+//                transaction.replace(R.id.fragmentLayout,initialCartFragment);
+//                transaction.commit();
             }
         });
     }
