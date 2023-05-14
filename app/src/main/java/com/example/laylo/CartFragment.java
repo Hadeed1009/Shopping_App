@@ -41,9 +41,13 @@ public class CartFragment extends Fragment {
         View view= inflater.inflate(R.layout.fragment_cart, container, false);
         @SuppressLint({"MissingInflatedId", "LocalSuppress"})
         RecyclerView cart_recycler=view.findViewById(R.id.cart_recycler);
-//        TextView subTotal,discount,totalAmount;
-//        int Total=0;
 
+        //For Order Details
+        subTotal= view.findViewById(R.id.subTotal);
+        discount= view.findViewById(R.id.Discount);
+        totalAmount= view.findViewById(R.id.totalPrice);
+
+        ArrayList<CartModel> list = new ArrayList<>();
         //In case cart is empty
         if(Cart.cartItems.size()==0)
         {
@@ -55,11 +59,6 @@ public class CartFragment extends Fragment {
         }
         else {
             //In case it is not!
-            ArrayList<CartModel> list = new ArrayList<>();
-//        list.add(new CartModel(R.drawable.kids_category,R.drawable.increment,R.drawable.decrement,"One cutie added!","2 years old","RS 1349.00","1"));
-//        list.add(new CartModel(R.drawable.women_category,R.drawable.increment,R.drawable.decrement,"Beautiful!","20+ years old","RS 2349.00","4"));
-//        list.add(new CartModel(R.drawable.men_category,R.drawable.increment,R.drawable.decrement,"Hehehehe!","30 years old","RS 1349.00","2"));
-//            new Cart();
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                 Cart.cartItems.forEach((item) -> {
                     String imageName = item.image;
@@ -100,55 +99,37 @@ public class CartFragment extends Fragment {
 //                cart_recycler.setAdapter(adapter);
 //            }
 // //       }
-
-            Cart_Adapter adapter = new Cart_Adapter(list, getContext());
-            cart_recycler.setAdapter(adapter);
         }
+
+        Cart_Adapter adapter = new Cart_Adapter(list, getContext(),subTotal,discount,totalAmount);
+        cart_recycler.setAdapter(adapter);
         LinearLayoutManager layoutManager=new LinearLayoutManager(getContext());
         cart_recycler.setLayoutManager(layoutManager);
 
         //Order Details
-        subTotal= view.findViewById(R.id.subTotal);
-        discount= view.findViewById(R.id.Discount);
-        totalAmount= view.findViewById(R.id.totalPrice);
-            int New_Total=OrderDetails(Total);
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-//              for(cartItem element : Cart.cartItems){ //loop to iterate through cart
-//                 int Price =Integer.parseInt(element.price);
-//                  Total += Price ;
-//              }
-//        }
-
-        subTotal.setText("Rs: "+String.format("%,d",New_Total)+".00");
-        discount.setText("Rs: "+"0.00");
-        totalAmount.setText("Rs: "+String.format("%,d",New_Total)+".00");
-
-        Button placeOrder= view.findViewById(R.id.placeOrder);
-        placeOrder.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//               Checking If Arraylist methods are working
-                new Cart();
-                Cart.cartItems.clear();
-
-//                Go to Address fragment
-//                AddressBottomSheet addressBottomSheet=new AddressBottomSheet();
-//                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-//                addressBottomSheet.show(getSupportFragmentManager(),"AddressBottomSheet");
-//                Toast.makeText(getContext(),"BUTTON", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        return view;
-    }
-
-    private int OrderDetails(int Total) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             for(cartItem element : Cart.cartItems){ //loop to iterate through cart
                 int Price =Integer.parseInt(element.price);
                 Total += Price ;
             }
         }
-        return Total;
+        subTotal.setText("Rs: "+String.format("%,d",Total)+".00");
+        discount.setText("Rs: "+"0.00");
+        totalAmount.setText("Rs: "+String.format("%,d",Total)+".00");
+
+
+        Button placeOrder= view.findViewById(R.id.placeOrder);
+        placeOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Go to Address fragment
+                AddressBottomSheet addressBottomSheet = new AddressBottomSheet();
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                transaction.replace(R.id.fragmentLayout, addressBottomSheet);
+                transaction.commit();
+            }
+        });
+        return view;
     }
 }

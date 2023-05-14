@@ -2,9 +2,11 @@ package com.example.laylo;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -26,8 +28,6 @@ public class ItemDescription extends AppCompatActivity {
     ImageView item_image;
     TextView item_name,custombar_text,item_description1,item_price,item_size,text_cart,text_buy;
     int item_qty=1; // to count item quantity on every button click
-    public boolean added=false; //mark item as added, once entered in cart
-//    int count=0;
     public static String item_name1;
     @SuppressLint("MissingInflatedId")
     @Override
@@ -87,11 +87,12 @@ public class ItemDescription extends AppCompatActivity {
 //
 //            }
 //        });
+
+
         //Add To Cart
         text_cart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                System.out.println("Enter in onclick "+ added);
                 //Add selected items to list
                 int position = getIntent().getIntExtra("Position",0); //item position
                 int Cat_position = getIntent().getIntExtra("position",0); //category position
@@ -109,8 +110,8 @@ public class ItemDescription extends AppCompatActivity {
                 String Str_qty = Integer.toString(item_qty);
                 Cart cart = new Cart();
                 cartItem cartitem = new cartItem(Str_image,name,price,size,Str_qty);
-                //check if item is already in cart
                 boolean found = false;
+                    //check if item is already in cart
                     for(cartItem checkItem : cart.cartItems){
                         if(checkItem.image.equals(cartitem.image)){ //checking the distinct element
                         int New_qty = Integer.parseInt(checkItem.quantity)+1; //increment quantity
@@ -185,7 +186,6 @@ public class ItemDescription extends AppCompatActivity {
             }
         });
 
-
         //Buy Now
         text_buy.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -195,9 +195,11 @@ public class ItemDescription extends AppCompatActivity {
                         .setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
+//                                Intent intent = new Intent(ItemDescription.this,AddressBottomSheet.class);
+//                                  intent.putExtra("Flag",true);
                                 AddressBottomSheet addressBottomSheet=new AddressBottomSheet();
                                 addressBottomSheet.show(getSupportFragmentManager(),"AddressBottomSheet");
-                                Toast.makeText(ItemDescription.this, "Ok", Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(ItemDescription.this, "Ok", Toast.LENGTH_SHORT).show();
                             }
                         }).setNegativeButton("Change", new DialogInterface.OnClickListener() {
                             @Override
@@ -206,6 +208,11 @@ public class ItemDescription extends AppCompatActivity {
                             }
                         })
                         .show();
+//                //Buy Now leads to cart directly
+//                CartFragment cartFragment = new CartFragment();
+//                FragmentTransaction transaction=getSupportFragmentManager().beginTransaction();
+//                transaction.replace(R.id.fragmentLayout, cartFragment);
+//                transaction.commit();
             }
         });
     }
