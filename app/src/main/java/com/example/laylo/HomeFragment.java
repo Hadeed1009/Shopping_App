@@ -87,6 +87,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onLongItemClick(View view, int position) {
                 //Toast.makeText(getContext(), "Item Long Clicked", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getContext(), CategoriesFragment.class);
             }
         }));
 

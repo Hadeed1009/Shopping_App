@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="230dp"
-    android:background="@color/lightorange">
+    android:background="@color/lightgray">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView4"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="5dp"
+        android:layout_margin="10dp"
+        app:cardCornerRadius="5dp"
         app:cardMaxElevation="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,7 +44,7 @@
                 android:fontFamily="@font/inter"
                 android:gravity="center"
                 android:text="TextView"
-                android:textColor="@color/orange"
+                android:textColor="@color/black"
                 android:textSize="25dp"
                 android:textStyle="bold" />
         </LinearLayout>

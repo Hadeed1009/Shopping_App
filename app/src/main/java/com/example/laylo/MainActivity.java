@@ -24,8 +24,14 @@ public class MainActivity extends AppCompatActivity {
         cart= findViewById(R.id.cart);
         more = findViewById(R.id.more);
         home1.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("UseCompatLoadingForColorStateLists")
             @Override
             public void onClick(View view) {
+                home1.setImageTintList(getResources().getColorStateList(R.color.orange));
+                category.setImageTintList(getResources().getColorStateList(R.color.gray));
+                profile.setImageTintList(getResources().getColorStateList(R.color.gray));
+                cart.setImageTintList(getResources().getColorStateList(R.color.gray));
+                more.setImageTintList(getResources().getColorStateList(R.color.gray));
                 HomeFragment homeFragment=new HomeFragment();
                 FragmentTransaction transaction=getSupportFragmentManager().beginTransaction();
                 transaction.replace(R.id.fragmentLayout, homeFragment);
@@ -36,6 +42,11 @@ public class MainActivity extends AppCompatActivity {
         category.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                category.setImageTintList(getResources().getColorStateList(R.color.orange));
+                home1.setImageTintList(getResources().getColorStateList(R.color.gray));
+                profile.setImageTintList(getResources().getColorStateList(R.color.gray));
+                cart.setImageTintList(getResources().getColorStateList(R.color.gray));
+                more.setImageTintList(getResources().getColorStateList(R.color.gray));
                 CategoriesFragment categoriesFragment=new CategoriesFragment();
                 FragmentTransaction transaction=getSupportFragmentManager().beginTransaction();
                 transaction.replace(R.id.fragmentLayout, categoriesFragment);
@@ -46,6 +57,11 @@ public class MainActivity extends AppCompatActivity {
         profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                profile.setImageTintList(getResources().getColorStateList(R.color.orange));
+                category.setImageTintList(getResources().getColorStateList(R.color.gray));
+                home1.setImageTintList(getResources().getColorStateList(R.color.gray));
+                cart.setImageTintList(getResources().getColorStateList(R.color.gray));
+                more.setImageTintList(getResources().getColorStateList(R.color.gray));
                 ProfileFragment profileFragment=new ProfileFragment();
                 FragmentTransaction transaction=getSupportFragmentManager().beginTransaction();
                 transaction.replace(R.id.fragmentLayout, profileFragment);
@@ -56,6 +72,11 @@ public class MainActivity extends AppCompatActivity {
         cart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                cart.setImageTintList(getResources().getColorStateList(R.color.orange));
+                category.setImageTintList(getResources().getColorStateList(R.color.gray));
+                profile.setImageTintList(getResources().getColorStateList(R.color.gray));
+                home1.setImageTintList(getResources().getColorStateList(R.color.gray));
+                more.setImageTintList(getResources().getColorStateList(R.color.gray));
                 CartFragment cartFragment=new CartFragment();
                 FragmentTransaction transaction=getSupportFragmentManager().beginTransaction();
                 transaction.replace(R.id.fragmentLayout, cartFragment);
@@ -67,6 +88,11 @@ public class MainActivity extends AppCompatActivity {
         more.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                more.setImageTintList(getResources().getColorStateList(R.color.orange));
+                category.setImageTintList(getResources().getColorStateList(R.color.gray));
+                profile.setImageTintList(getResources().getColorStateList(R.color.gray));
+                cart.setImageTintList(getResources().getColorStateList(R.color.gray));
+                home1.setImageTintList(getResources().getColorStateList(R.color.gray));
 //                InitialCartFragment initialCartFragment = new InitialCartFragment();
 //                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 //                transaction.replace(R.id.fragmentLayout,initialCartFragment);
@@ -77,6 +103,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+        home1.setImageTintList(getResources().getColorStateList(R.color.orange));
+        category.setImageTintList(getResources().getColorStateList(R.color.gray));
+        profile.setImageTintList(getResources().getColorStateList(R.color.gray));
+        cart.setImageTintList(getResources().getColorStateList(R.color.gray));
+        more.setImageTintList(getResources().getColorStateList(R.color.gray));
         HomeFragment homeFragment=new HomeFragment();
         FragmentTransaction transaction=getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.fragmentLayout, homeFragment);
