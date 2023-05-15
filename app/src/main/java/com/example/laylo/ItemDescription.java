@@ -197,7 +197,12 @@ public class ItemDescription extends AppCompatActivity {
                             public void onClick(DialogInterface dialogInterface, int i) {
 //                                Intent intent = new Intent(ItemDescription.this,AddressBottomSheet.class);
 //                                  intent.putExtra("Flag",true);
+
+                                Bundle bundle = new Bundle();
+                                bundle.putInt("position",0);
+
                                 AddressBottomSheet addressBottomSheet=new AddressBottomSheet();
+                                addressBottomSheet.setArguments(bundle);
                                 addressBottomSheet.show(getSupportFragmentManager(),"AddressBottomSheet");
 //                                Toast.makeText(ItemDescription.this, "Ok", Toast.LENGTH_SHORT).show();
                             }

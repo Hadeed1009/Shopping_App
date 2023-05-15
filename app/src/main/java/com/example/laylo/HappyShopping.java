@@ -1,6 +1,7 @@
 package com.example.laylo;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,21 +14,35 @@ public class HappyShopping extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_happy_shopping);
 
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
-        Thread thread = new Thread(){
-            public void run(){
-                try {
-                    sleep(3000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                finally {
-                    Intent intent = new Intent(HappyShopping.this, CartFragment.class);
-                    startActivity(intent);
-                    finish();
-                }
-            }
-        };thread.start();
+//        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+//
+//        Thread thread = new Thread(){
+//            public void run(){
+//                try {
+//                    sleep(3000);
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
+//                finally {
+////                    Intent intent = new Intent(HappyShopping.this, CartFragment.class);
+////                    startActivity(intent);
+//                    CartFragment cartFragment = new CartFragment();
+//                    FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+//                    transaction.replace(R.id.fragmentLayout,cartFragment);
+//                    transaction.commit();
+////                    finish();
+//                }
+//            }
+//        };thread.start();
+    }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+//        FrameLayout fragmentContainer = findViewById(R.id.fragment_container);
+        CartFragment cartFragment = new CartFragment();
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.fragmentLayout,cartFragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
     }
 }

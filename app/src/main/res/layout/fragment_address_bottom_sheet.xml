@@ -14,7 +14,7 @@
         android:layout_marginTop="10dp"
         android:gravity="center"
         android:text="Add Shippment Details"
-        android:textColor="#000000"
+        android:textColor="@color/orange"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,9 +36,11 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="30dp"
             android:layout_marginRight="20dp"
+            android:background="@drawable/shape_text"
             android:ems="10"
             android:hint="First Name*"
             android:inputType="textPersonName"
+            android:paddingLeft="10dp"
             android:textColor="#000000"
             android:textColorHint="#8F8E8E" />
 
@@ -47,10 +49,13 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="20dp"
+            android:background="@drawable/shape_text"
             android:ems="10"
             android:hint="Last Name*"
             android:inputType="textPersonName"
+            android:paddingLeft="10dp"
             android:textColor="#000000"
             android:textColorHint="#8F8E8E" />
 
@@ -59,10 +64,13 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="20dp"
+            android:background="@drawable/shape_text"
             android:ems="10"
             android:hint="Company"
             android:inputType="textPersonName"
+            android:paddingLeft="10dp"
             android:textColor="#000000"
             android:textColorHint="#8F8E8E" />
 
@@ -71,10 +79,13 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="20dp"
+            android:background="@drawable/shape_text"
             android:ems="10"
             android:hint="Contact*"
             android:inputType="phone"
+            android:paddingLeft="10dp"
             android:textColorHint="#8F8E8E" />
 
         <EditText
@@ -82,10 +93,13 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="20dp"
+            android:background="@drawable/shape_text"
             android:ems="10"
             android:hint="Address*"
             android:inputType="textPostalAddress"
+            android:paddingLeft="10dp"
             android:textColorHint="#8F8E8E" />
 
         <EditText
@@ -93,10 +107,13 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="20dp"
+            android:background="@drawable/shape_text"
             android:ems="10"
             android:hint="Country*"
             android:inputType="textPersonName"
+            android:paddingLeft="10dp"
             android:textColorHint="#8F8E8E" />
 
         <EditText
@@ -104,10 +121,13 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="20dp"
+            android:background="@drawable/shape_text"
             android:ems="10"
             android:hint="State*"
             android:inputType="textPersonName"
+            android:paddingLeft="10dp"
             android:textColorHint="#8F8E8E" />
 
         <EditText
@@ -115,10 +135,13 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="20dp"
+            android:background="@drawable/shape_text"
             android:ems="10"
             android:hint="City*"
             android:inputType="textPersonName"
+            android:paddingLeft="10dp"
             android:textColorHint="#8F8E8E" />
 
         <EditText
@@ -126,10 +149,13 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="20dp"
+            android:background="@drawable/shape_text"
             android:ems="10"
             android:hint="Zip/Postal Code*"
             android:inputType="textPersonName"
+            android:paddingLeft="10dp"
             android:textColorHint="#8F8E8E" />
 
         <Button
@@ -137,7 +163,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
+            android:background="@drawable/btn_bg"
             android:text="CHECK OUT"
+            android:textColor="@color/white"
             android:textSize="16sp" />
 
     </LinearLayout>

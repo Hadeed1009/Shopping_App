@@ -99,10 +99,10 @@ public class MainActivity extends AppCompatActivity {
                 profile.setImageTintList(getResources().getColorStateList(R.color.gray));
                 cart.setImageTintList(getResources().getColorStateList(R.color.gray));
                 home1.setImageTintList(getResources().getColorStateList(R.color.gray));
-//                InitialCartFragment initialCartFragment = new InitialCartFragment();
-//                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-//                transaction.replace(R.id.fragmentLayout,initialCartFragment);
-//                transaction.commit();
+                MoreFragment moreFragment = new MoreFragment();
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.fragmentLayout,moreFragment);
+                transaction.commit();
             }
         });
     }
