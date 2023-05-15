@@ -59,7 +59,7 @@
                 android:src="@drawable/order" />
 
             <TextView
-                android:id="@+id/textView18"
+                android:id="@+id/myOrders"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"

@@ -67,19 +67,14 @@ public class Cart_Adapter extends RecyclerView.Adapter<Cart_Adapter.viewholder>{
                         int New_price = Old_price*qty;
                         findItem.quantity= Integer.toString(qty); //update quantity
                         findItem.price = Integer.toString(New_price); //update price also
-                        notifyDataSetChanged();
                         //applying changes in adapter model
-                        model.setQuantity(Integer.toString(qty));
-                        model.setPrice(Integer.toString(New_price));
+                        list.get(position).setQuantity(Integer.toString(qty));
+                        list.get(position).setPrice(Integer.toString(New_price));
+                        notifyDataSetChanged();
                         //Update Order Details
                         UpdateOrderDetails();
                     }
                 }
-                //this is only changing the adapter view, not in original list
-//                int qty = Integer.parseInt(model.getQuantity());
-//                qty++;
-//                model.setQuantity(Integer.toString(qty));
-//                notifyDataSetChanged();
             }
         });
 
@@ -93,26 +88,21 @@ public class Cart_Adapter extends RecyclerView.Adapter<Cart_Adapter.viewholder>{
                         int qty = Integer.parseInt(findItem.quantity);
                         int Old_price = Integer.parseInt(findItem.price)/qty; //Actual Price
                         qty = qty-1;
-//                        in case of qty = 0
+                        //in case of qty == 0
                         if(qty==0){
                             Cart.cartItems.remove(findItem);
-//                            ArrayList<CartModel> newList = new ArrayList<>();
-//                            newList = (ArrayList)Cart.cartItems.clone();
-////                            Collections.copy(newList,Cart.cartItems);
-//                            Cart_Adapter adapter = new Cart_Adapter(newList, context ,subTotal,discount,totalAmount);
-//                            adapter.notifyItemRemoved(position);
-                            //call cart fragment again
-//                            Cart_Adapter add = new Cart_Adapter( list, context,  subTotal,  discount,  totalAmount);
-//                            add.notifyItemRemoved(position);
+                            list.remove(position);
+                            notifyItemRemoved(position);
                         }
-                        int New_price = Old_price*qty;
-                        findItem.quantity= Integer.toString(qty); //update quanitiy
-                        findItem.price = Integer.toString(New_price); //update price also
-                        notifyDataSetChanged();
-//                        notifyItemChanged(position);
-//                        applying changes in adapter model
-                        model.setQuantity(Integer.toString(qty));
-                        model.setPrice(Integer.toString(New_price));
+                        else{
+                            int New_price = Old_price*qty;
+                            findItem.quantity= Integer.toString(qty); //update quanitiy
+                            findItem.price = Integer.toString(New_price); //update price also
+//                      applying changes in adapter model
+                            list.get(position).setQuantity(Integer.toString(qty));
+                            list.get(position).setPrice(Integer.toString(New_price));
+                            notifyDataSetChanged();
+                        }
                         //Update Order Details
                         UpdateOrderDetails();
                     }
