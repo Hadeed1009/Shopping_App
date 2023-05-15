@@ -30,7 +30,7 @@
         android:id="@+id/textView4"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/arbutus"
+        android:fontFamily="@font/abril_fatface"
         android:gravity="center"
         android:text="Lay Lo"
         android:textColor="#F08405"
