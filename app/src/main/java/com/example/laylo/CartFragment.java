@@ -66,39 +66,6 @@ public class CartFragment extends Fragment {
                     list.add(new CartModel(resImageId, item.name, item.size, item.price, item.quantity));
                 });
             }
-//        if(cart.menCart.isEmpty() && cart.womenCart.isEmpty() && cart.kidsCart.isEmpty())
-//        {
-////            Intent intent = new Intent(getContext(), InitialCartFragment.class);
-////            startActivity(intent);
-//            InitialCartFragment initialCartFragment = new InitialCartFragment();
-//            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-//            FragmentTransaction transaction = fragmentManager.beginTransaction();
-//            transaction.replace(R.id.fragmentLayout, initialCartFragment);
-//            transaction.commit();
-//        }
-//        else{
-//            if(!cart.menCart.isEmpty()){
-//                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-//                    Cart_Adapter adapter= new Cart_Adapter(cart.menCart,getContext());
-//                    cart_recycler.setAdapter(adapter);
-////                    cart.menCart.forEach((item)->{
-//////                        String imageName=item.image;
-////                        //Instead of adding item1,item2 in menCart why not add all the details at the same time and get them printed here!
-////                        int resImageId=getResources().getIdentifier(imageName,"drawable",getActivity().getPackageName());
-////                        list.add(new CartModel(R.drawable.kids_category,R.drawable.increment,R.drawable.decrement,"One cutie added!","2 years old","RS 1349.00","1"));
-////                    });
-//
-//                }
-//            }
-//            if(!cart.womenCart.isEmpty()){
-//                Cart_Adapter adapter= new Cart_Adapter(cart.womenCart,getContext());
-//                cart_recycler.setAdapter(adapter);
-//            }
-//            if(!cart.kidsCart.isEmpty()){
-//                Cart_Adapter adapter= new Cart_Adapter(cart.kidsCart,getContext());
-//                cart_recycler.setAdapter(adapter);
-//            }
-// //       }
         }
 
         Cart_Adapter adapter = new Cart_Adapter(list, getContext(),subTotal,discount,totalAmount);
@@ -117,13 +84,11 @@ public class CartFragment extends Fragment {
         discount.setText("Rs: "+"0.00");
         totalAmount.setText("Rs: "+String.format("%,d",Total)+".00");
 
-
         Button placeOrder= view.findViewById(R.id.placeOrder);
         placeOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Go to Address fragment
-
                 Bundle bundle = new Bundle();
                 bundle.putInt("position",1);
                 AddressBottomSheet addressBottomSheet = new AddressBottomSheet();

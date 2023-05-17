@@ -13,6 +13,7 @@ public class SplashScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
 
+        //Hide the status bar
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         Thread thread = new Thread(){

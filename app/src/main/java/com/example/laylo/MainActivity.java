@@ -16,7 +16,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
 
-    ImageView home1,category,search1,profile,cart,more;
+    ImageView home1,category,profile,cart,more;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         profile=findViewById(R.id.profile);
         cart= findViewById(R.id.cart);
         more = findViewById(R.id.more);
+
         home1.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("UseCompatLoadingForColorStateLists")
             @Override

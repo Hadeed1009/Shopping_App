@@ -28,6 +28,9 @@ public class Register extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+        // Initialize Firebase Auth
+        mAuth=FirebaseAuth.getInstance();
+
         reg_name=findViewById(R.id.reg_name);
         reg_email=findViewById(R.id.reg_email);
         reg_password=findViewById(R.id.reg_password);
@@ -35,8 +38,6 @@ public class Register extends AppCompatActivity {
         signup=findViewById(R.id.btn_signUp);
         reg_login=findViewById(R.id.reg_login);
         reg_address=findViewById(R.id.reg_address);
-
-        mAuth=FirebaseAuth.getInstance();
 
         signup.setOnClickListener(new View.OnClickListener() {
             @Override

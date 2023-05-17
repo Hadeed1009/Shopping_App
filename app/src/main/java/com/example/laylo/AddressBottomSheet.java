@@ -75,7 +75,6 @@ public class AddressBottomSheet extends BottomSheetDialogFragment {
                     Bundle bundle = getArguments();
                     int position = bundle.getInt("position");
 
-//                        Cart.cartItems.remove(0);
                         Intent intent = new Intent(getContext(), HappyShopping.class);
                         intent.putExtra("first_name", cust_firstName.getText().toString());
                         intent.putExtra("last_name", cust_lastName.getText().toString());
@@ -84,27 +83,9 @@ public class AddressBottomSheet extends BottomSheetDialogFragment {
                         intent.putExtra("zip_code", cust_zipCode.getText().toString());
                         intent.putExtra("country", cust_country.getText().toString());
                         startActivity(intent);
-                if (position == 1) {
-                    Toast.makeText(getActivity(), "This is a toast message "+ position, Toast.LENGTH_SHORT).show();
-
-                    Cart.cartItems.clear();
-                }
-//                    else if (position == 1) {
-//                        Intent intent = new Intent(getContext(), HappyShopping.class);
-//                        intent.putExtra("first_name", cust_firstName.getText().toString());
-//                        intent.putExtra("last_name", cust_lastName.getText().toString());
-//                        intent.putExtra("address", cust_address.getText().toString());
-//                        intent.putExtra("city", cust_city.getText().toString());
-//                        intent.putExtra("zip_code", cust_zipCode.getText().toString());
-//                        intent.putExtra("country", cust_country.getText().toString());
-//                    }
-
-                    //Adding placed orders in myOrders array for record
-//                    ArrayList<cartItem> orders = (ArrayList<cartItem>) Cart.cartItems.clone();
-//
-//                    //For Items from buyNow, make orders2
-//                    Intent intent = new Intent(getContext(), HappyShopping.class);
-//                    startActivity(intent);
+                    if (position == 1) {
+                        Cart.cartItems.clear();
+                    }
                 }
             }
         });

@@ -61,34 +61,6 @@ public class ItemDescription extends AppCompatActivity {
         String price = getIntent().getStringExtra("price");
         item_price.setText("Rs: "+price);
 
-//        int size = getIntent().getIntExtra("size",0);
-//        item_image.setImageResource(size);
-//
-
-//        reference= FirebaseDatabase.getInstance().getReference("products/men").child("men1");
-//        reference.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                String name=snapshot.child("name").getValue().toString();
-//                item_name1=name;
-//                String desc=snapshot.child("description").getValue().toString();
-//                String price=snapshot.child("price").getValue().toString();
-//                String size=snapshot.child("size").getValue().toString();
-//
-//                item_name.setText(name);
-//                custombar_text.setText(name);
-//                description.setText(desc);
-//                item_price.setText(price);
-//
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
-
-
         //Add To Cart
         text_cart.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -126,54 +98,6 @@ public class ItemDescription extends AppCompatActivity {
                    {
                        cart.cartItems.add(cartitem);
                    }
-//                }
-//                else {
-//                    System.out.println("entered in add case"+added);
-//                    cart.cartItems.add(cartitem);
-//                    added=true;
-//                }
-//                if(cart.cartItems.contains(cartitem)) {
-//                    cart.cartItems.clear();
-//                    while (cart.cartItems.contains(cartitem)) {
-//                        int index = cart.cartItems.indexOf(cartitem);
-//                        cart.cartItems.remove(index);
-                 //// cart.cartItems.remove(cartitem);
-//                    }
-
-//                    item_qty++;
-//                    String Str_qty2 = Integer.toString(item_qty);
-//                    cartItem cartitem2 = new cartItem(Str_image,name,price,size,Str_qty2);
-//                    cart.cartItems.add(cartitem2);
-//                }
-//                else{
-//                    cart.cartItems.add(cartitem);
-//                }
-
-//                       cart.menCart.add(C_item_name);
-//                        cart.menCart.add(new CartModel(image,R.drawable.increment,R.drawable.decrement,name,size,price,Str_qty));
-
-//                        cart.menCart.add(new CartModel(image,name,size,price,Str_qty));
-//                        cart.menCart.add(new CartModel(image,name,size,price,Str_qty));
-//                        Toast.makeText(ItemDescription.this,"TT "+cart.menCart, Toast.LENGTH_SHORT).show();
-//                        for(CartModel cm: cart.menCart){
-//                            System.out.println(cm);
-//                        }
-//                    case 1:
-////                        cart.womenCart.add(C_item_name);
-////                        cart.womenCart.add(new CartModel(image,R.drawable.increment,R.drawable.decrement,name,size,price,Str_qty));
-//                    case 2:
-////                        cart.kidsCart.add(C_item_name);
-////                        cart.kidsCart.add(new CartModel(image,R.drawable.increment,R.drawable.decrement,name,size,price,Str_qty));
-//                    default:
-////                        System.out.println("NO SUCH CATEGORY..");
-//                }
-//                  Toast.makeText(ItemDescription.this,"hii"+ position, Toast.LENGTH_SHORT).show();
-//                item_qty++;
-//                String imageName=item.image;
-//                int resImageId=getResources().getIdentifier(imageName,"drawable",getPackageName());
-//                ArrayList<CartModel> cartList= new ArrayList<>();
-//                cartList.add(new CartModel(image, name, size, price, item_qty));
-
                 //show dialog box
                 new AlertDialog.Builder(ItemDescription.this)
                         .setMessage("Cart Updated!")
@@ -195,8 +119,6 @@ public class ItemDescription extends AppCompatActivity {
                         .setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-//                                Intent intent = new Intent(ItemDescription.this,AddressBottomSheet.class);
-//                                  intent.putExtra("Flag",true);
 
                                 Bundle bundle = new Bundle();
                                 bundle.putInt("position",0);
@@ -204,7 +126,6 @@ public class ItemDescription extends AppCompatActivity {
                                 AddressBottomSheet addressBottomSheet=new AddressBottomSheet();
                                 addressBottomSheet.setArguments(bundle);
                                 addressBottomSheet.show(getSupportFragmentManager(),"AddressBottomSheet");
-//                                Toast.makeText(ItemDescription.this, "Ok", Toast.LENGTH_SHORT).show();
                             }
                         }).setNegativeButton("Change", new DialogInterface.OnClickListener() {
                             @Override
@@ -213,11 +134,6 @@ public class ItemDescription extends AppCompatActivity {
                             }
                         })
                         .show();
-//                //Buy Now leads to cart directly
-//                CartFragment cartFragment = new CartFragment();
-//                FragmentTransaction transaction=getSupportFragmentManager().beginTransaction();
-//                transaction.replace(R.id.fragmentLayout, cartFragment);
-//                transaction.commit();
             }
         });
     }

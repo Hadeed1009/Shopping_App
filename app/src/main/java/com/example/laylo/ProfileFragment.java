@@ -47,6 +47,7 @@ public class ProfileFragment extends Fragment {
         @SuppressLint({"MissingInflatedId", "LocalSuppress"})
         TextView account_delete=view.findViewById(R.id.account_delete);
 
+
         DatabaseReference myRef= FirebaseDatabase.getInstance().getReference("customer").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
         myRef.get().addOnSuccessListener(dataSnapshot -> {
             profile_name.setText(dataSnapshot.child("name").getValue().toString());
@@ -97,19 +98,8 @@ public class ProfileFragment extends Fragment {
                         dialogInterface.dismiss();
                     }
                 }).show();
-
             }
         });
-
-//        DatabaseReference myRef= FirebaseDatabase.getInstance().getReference("customer").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
-//        myRef.get().addOnSuccessListener(dataSnapshot -> {
-//            profile_name.setText(dataSnapshot.child("name").getValue().toString());
-//        });
-//
-//        FirebaseAuth auth = FirebaseAuth.getInstance();
-//        FirebaseUser user = auth.getCurrentUser();
-//        profile_email.setText(user.getEmail());
-
         return view;
     }
 }
