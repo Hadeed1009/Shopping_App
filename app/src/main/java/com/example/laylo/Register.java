@@ -52,12 +52,14 @@ public class Register extends AppCompatActivity {
             }
         });
     }
+    //creating a new user and updating data in fire-base
     public void createUser(){
         String name=reg_name.getText().toString();
         String mail=reg_email.getText().toString();
         String pass=reg_password.getText().toString();
         String confirmpass=reg_confirmPassword.getText().toString();
         String address=reg_address.getText().toString();
+        //Form input validation checks
         if(TextUtils.isEmpty(name)) {
             reg_name.setError("Name is Required");
             reg_name.requestFocus();
@@ -78,6 +80,7 @@ public class Register extends AppCompatActivity {
             reg_confirmPassword.requestFocus();
         }
          else {
+             //Once all fields filled correctly, create new user
             mAuth.createUserWithEmailAndPassword(mail,pass).addOnCompleteListener(task -> {
                 if(task.isSuccessful()){
                     Toast.makeText(Register.this, "User Created", Toast.LENGTH_SHORT).show();

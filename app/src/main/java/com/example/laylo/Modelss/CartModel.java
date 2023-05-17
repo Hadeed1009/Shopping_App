@@ -75,9 +75,4 @@ public class CartModel {
         this.quantity = quantity;
     }
 
-//    @Override
-
-//    public String toString() {
-//        return "Student [name=" + name + ", size=" + size + ", price="+ price +", quantity="+quantity+" ]";
-//    }
 }

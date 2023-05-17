@@ -38,7 +38,6 @@ public class CategoryListActivity extends AppCompatActivity {
                 int resImageId=getResources().getIdentifier(imageName,"drawable",getPackageName());
                 list.add(new CategoryListModel(resImageId, item.name, item.price));
                 list1.add(new CategoryListModel(resImageId, item.name, item.price,item.size,item.description));
-//                list=new ArrayList<>();
                 });
             }
         }
@@ -64,17 +63,6 @@ public class CategoryListActivity extends AppCompatActivity {
                 });
             }
         }
-//        list1 = new ArrayList<>();
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-//            MenClass.items.forEach((item) -> {
-//                String imageName=item.image;
-//                int resImageId=getResources().getIdentifier(imageName,"drawable",getPackageName());
-//                list.add(new CategoryListModel(resImageId, item.name, item.price));
-//                list1.add(new CategoryListModel(resImageId, item.name, item.price,item.size,item.description));
-////                list=new ArrayList<>();
-//
-//            });
-//        }
 
         catlist_recycler.setHasFixedSize(true);
         CategoryList_Adapter adapter1 = new CategoryList_Adapter(list, this,15);

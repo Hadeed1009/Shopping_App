@@ -40,7 +40,4 @@ public class MenClass {
         items.add(item14);
         items.add(item15);
     }
-
-
-
 }

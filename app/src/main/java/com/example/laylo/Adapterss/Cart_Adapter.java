@@ -109,9 +109,7 @@ public class Cart_Adapter extends RecyclerView.Adapter<Cart_Adapter.viewholder>{
                 }
             }
         });
-
     }
-
     @Override
     public int getItemCount() {
         return list.size();
