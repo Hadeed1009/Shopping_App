@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.laylo.Modelss.Cart;
 import com.example.laylo.Modelss.cartItem;
@@ -43,44 +44,60 @@ public class AddressBottomSheet extends BottomSheetDialogFragment {
         cust_zipCode = view.findViewById(R.id.cust_zipCode);
         cust_country = view.findViewById(R.id.cust_country);
 
-
-
         Confirm_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                if(TextUtils.isEmpty(cust_firstName.getText())){
-//                    cust_firstName.setError("This field cannot be empty");
-//                    cust_firstName.requestFocus();
-//                } else if (TextUtils.isEmpty(cust_lastName.getText())) {
-//                    cust_lastName.setError("This field cannot be empty");
-//                    cust_lastName.requestFocus();
-//                } else if (TextUtils.isEmpty(cust_address.getText())) {
-//                    cust_address.setError("This field cannot be empty");
-//                    cust_address.requestFocus();
-//                } else if (TextUtils.isEmpty(cust_contact.getText())) {
-//                    cust_contact.setError("This field cannot be empty");
-//                    cust_contact.requestFocus();
-//                } else if (TextUtils.isEmpty(cust_country.getText())) {
-//                    cust_country.setError("This field cannot be empty");
-//                    cust_country.requestFocus();
-//                } else if (TextUtils.isEmpty(cust_state.getText())) {
-//                    cust_state.setError("This field cannot be empty");
-//                    cust_state.requestFocus();
-//                } else if (TextUtils.isEmpty(cust_city.getText())) {
-//                    cust_city.setError("This field cannot be empty");
-//                    cust_city.requestFocus();
-//                } else if (TextUtils.isEmpty(cust_zipCode.getText())) {
-//                    cust_zipCode.setError("This field cannot be empty");
-//                    cust_zipCode.requestFocus();
-//                }else{
+                if(TextUtils.isEmpty(cust_firstName.getText())){
+                    cust_firstName.setError("This field cannot be empty");
+                    cust_firstName.requestFocus();
+                } else if (TextUtils.isEmpty(cust_lastName.getText())) {
+                    cust_lastName.setError("This field cannot be empty");
+                    cust_lastName.requestFocus();
+                } else if (TextUtils.isEmpty(cust_address.getText())) {
+                    cust_address.setError("This field cannot be empty");
+                    cust_address.requestFocus();
+                } else if (TextUtils.isEmpty(cust_contact.getText())) {
+                    cust_contact.setError("This field cannot be empty");
+                    cust_contact.requestFocus();
+                } else if (TextUtils.isEmpty(cust_country.getText())) {
+                    cust_country.setError("This field cannot be empty");
+                    cust_country.requestFocus();
+                } else if (TextUtils.isEmpty(cust_state.getText())) {
+                    cust_state.setError("This field cannot be empty");
+                    cust_state.requestFocus();
+                } else if (TextUtils.isEmpty(cust_city.getText())) {
+                    cust_city.setError("This field cannot be empty");
+                    cust_city.requestFocus();
+                } else if (TextUtils.isEmpty(cust_zipCode.getText())) {
+                    cust_zipCode.setError("This field cannot be empty");
+                    cust_zipCode.requestFocus();
+                }else{
                     Bundle bundle = getArguments();
                     int position = bundle.getInt("position");
 
-                    if (position == 0) {
 //                        Cart.cartItems.remove(0);
                         Intent intent = new Intent(getContext(), HappyShopping.class);
+                        intent.putExtra("first_name", cust_firstName.getText().toString());
+                        intent.putExtra("last_name", cust_lastName.getText().toString());
+                        intent.putExtra("address", cust_address.getText().toString());
+                        intent.putExtra("city", cust_city.getText().toString());
+                        intent.putExtra("zip_code", cust_zipCode.getText().toString());
+                        intent.putExtra("country", cust_country.getText().toString());
                         startActivity(intent);
-                    }
+                if (position == 1) {
+                    Toast.makeText(getActivity(), "This is a toast message "+ position, Toast.LENGTH_SHORT).show();
+
+                    Cart.cartItems.clear();
+                }
+//                    else if (position == 1) {
+//                        Intent intent = new Intent(getContext(), HappyShopping.class);
+//                        intent.putExtra("first_name", cust_firstName.getText().toString());
+//                        intent.putExtra("last_name", cust_lastName.getText().toString());
+//                        intent.putExtra("address", cust_address.getText().toString());
+//                        intent.putExtra("city", cust_city.getText().toString());
+//                        intent.putExtra("zip_code", cust_zipCode.getText().toString());
+//                        intent.putExtra("country", cust_country.getText().toString());
+//                    }
 
                     //Adding placed orders in myOrders array for record
 //                    ArrayList<cartItem> orders = (ArrayList<cartItem>) Cart.cartItems.clone();
@@ -89,7 +106,7 @@ public class AddressBottomSheet extends BottomSheetDialogFragment {
 //                    Intent intent = new Intent(getContext(), HappyShopping.class);
 //                    startActivity(intent);
                 }
-//            }
+            }
         });
         return view;
     }
