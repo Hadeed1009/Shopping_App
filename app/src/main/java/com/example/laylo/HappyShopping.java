@@ -38,11 +38,7 @@ public class HappyShopping extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-//        FrameLayout fragmentContainer = findViewById(R.id.fragment_container);
-        CartFragment cartFragment = new CartFragment();
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.fragmentLayout,cartFragment);
-        transaction.addToBackStack(null);
-        transaction.commit();
+        Intent intent = new Intent(HappyShopping.this, MainActivity.class);
+        startActivity(intent);
     }
 }

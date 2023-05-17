@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -19,6 +20,8 @@ import android.widget.Toast;
 
 import com.example.laylo.Adapterss.Home_Horizontal_Adapter;
 import com.example.laylo.Modelss.HomeModel;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -43,6 +46,15 @@ public class ProfileFragment extends Fragment {
         TextView profile_email=view.findViewById(R.id.profile_email);
         @SuppressLint({"MissingInflatedId", "LocalSuppress"})
         TextView account_delete=view.findViewById(R.id.account_delete);
+
+        DatabaseReference myRef= FirebaseDatabase.getInstance().getReference("customer").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+        myRef.get().addOnSuccessListener(dataSnapshot -> {
+            profile_name.setText(dataSnapshot.child("name").getValue().toString());
+        });
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+        FirebaseUser user = auth.getCurrentUser();
+        profile_email.setText(user.getEmail());
+
         profile_logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -65,14 +77,38 @@ public class ProfileFragment extends Fragment {
             }
         });
 
-        DatabaseReference myRef= FirebaseDatabase.getInstance().getReference("customer").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
-        myRef.get().addOnSuccessListener(dataSnapshot -> {
-            profile_name.setText(dataSnapshot.child("name").getValue().toString());
+        account_delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new AlertDialog.Builder(getContext())
+                        .setMessage("Are you sure you want to delete your account?")
+                        .setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                FirebaseAuth.getInstance().getCurrentUser().delete();
+                                FirebaseAuth.getInstance().signOut();
+                                startActivity(new Intent(getContext(),Login.class));
+                                getActivity().finish();
+                                Toast.makeText(getContext(), "Successfully Delete", Toast.LENGTH_SHORT).show();
+                            }
+                        }).setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                }).show();
+
+            }
         });
 
-        FirebaseAuth auth = FirebaseAuth.getInstance();
-        FirebaseUser user = auth.getCurrentUser();
-        profile_email.setText(user.getEmail());
+//        DatabaseReference myRef= FirebaseDatabase.getInstance().getReference("customer").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+//        myRef.get().addOnSuccessListener(dataSnapshot -> {
+//            profile_name.setText(dataSnapshot.child("name").getValue().toString());
+//        });
+//
+//        FirebaseAuth auth = FirebaseAuth.getInstance();
+//        FirebaseUser user = auth.getCurrentUser();
+//        profile_email.setText(user.getEmail());
 
         return view;
     }
