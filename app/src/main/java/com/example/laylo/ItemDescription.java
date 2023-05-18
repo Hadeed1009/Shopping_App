@@ -119,6 +119,7 @@ public class ItemDescription extends AppCompatActivity {
                         .setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
+
                                 Bundle bundle = new Bundle();
                                 bundle.putInt("position",0);
 

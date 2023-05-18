@@ -35,7 +35,6 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_home, container, false);
 
-
         //Recycler View for Top Ranking Layout
         RecyclerView rankingLayout=view.findViewById(R.id.rankingLayout);
 
@@ -50,14 +49,6 @@ public class HomeFragment extends Fragment {
                 list1.add(new HomeModel(resImageId, item.name, item.price, item.size, item.description));
             });
         }
-//        list.add(new HomeModel(R.drawable.men1,"MEN"));
-//        list.add(new HomeModel(R.drawable.men2,"WOMEN"));
-//        list.add(new HomeModel(R.drawable.men3,"KIDS"));
-//        list.add(new HomeModel(R.drawable.men4, "PK Shirt"));
-//        list.add(new HomeModel(R.drawable.men5, "Blue Shirt"));
-//        list.add(new HomeModel(R.drawable.men6, "Red Shirt"));
-//        list.add(new HomeModel(R.drawable.men7, "Grey Shirt"));
-//        list.add(new HomeModel(R.drawable.men8, "White Shirt"));
 
         Home_Horizontal_Adapter adapter=new Home_Horizontal_Adapter(list,getContext(),10);
         rankingLayout.setAdapter(adapter);
@@ -79,15 +70,10 @@ public class HomeFragment extends Fragment {
                 intent.putExtra("Position", ++position); //item position
                 intent.putExtra("position",0); //men category=0
                 startActivity(intent);
-
-//                Toast.makeText(getContext(), "Item Clicked hehe"+ ++position, Toast.LENGTH_SHORT).show();
-                //Toast.makeText(getContext(), "Item Clicked", Toast.LENGTH_SHORT).show();
             }
-
             @Override
             public void onLongItemClick(View view, int position) {
-                //Toast.makeText(getContext(), "Item Long Clicked", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getContext(), CategoriesFragment.class);
+
             }
         }));
 
@@ -105,14 +91,6 @@ public class HomeFragment extends Fragment {
                 list3.add(new HomeModel(resImageId, item.name, item.price, item.size, item.description));
             });
         }
-//        list2.add(new HomeModel(R.drawable.men_category,"MEN"));
-//        list2.add(new HomeModel(R.drawable.women_category,"WOMEN"));
-//        list2.add(new HomeModel(R.drawable.kids_category,"KIDS"));
-//        list2.add(new HomeModel(R.drawable.image1, "PK Shirt"));
-//        list2.add(new HomeModel(R.drawable.image2, "Blue Shirt"));
-//        list2.add(new HomeModel(R.drawable.image3, "Red Shirt"));
-//        list2.add(new HomeModel(R.drawable.image4, "Grey Shirt"));
-//        list2.add(new HomeModel(R.drawable.image5, "White Shirt"));
 
         Home_Vertical_Adapter adapter1=new Home_Vertical_Adapter(list2,getContext(),15);
         forYoulayout.setAdapter(adapter1);
@@ -134,12 +112,11 @@ public class HomeFragment extends Fragment {
                 intent.putExtra("Position",++position); //item position
                 intent.putExtra("position",2); //kids category=2
                 startActivity(intent);
-//                Toast.makeText(getContext(), "Item Clicked"+ ++position, Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onLongItemClick(View view, int position) {
-                //Toast.makeText(getContext(), "Item Long Clicked", Toast.LENGTH_SHORT).show();
+
             }
         }));
         return view;

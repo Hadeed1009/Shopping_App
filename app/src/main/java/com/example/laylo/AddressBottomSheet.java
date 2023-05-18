@@ -75,7 +75,6 @@ public class AddressBottomSheet extends BottomSheetDialogFragment {
                     Bundle bundle = getArguments();
                     int position = bundle.getInt("position");
 
-//                        Cart.cartItems.remove(0);
                         Intent intent = new Intent(getContext(), HappyShopping.class);
                         intent.putExtra("first_name", cust_firstName.getText().toString());
                         intent.putExtra("last_name", cust_lastName.getText().toString());
@@ -84,10 +83,9 @@ public class AddressBottomSheet extends BottomSheetDialogFragment {
                         intent.putExtra("zip_code", cust_zipCode.getText().toString());
                         intent.putExtra("country", cust_country.getText().toString());
                         startActivity(intent);
-                if (position == 1) {
-                    Toast.makeText(getActivity(), "This is a toast message "+ position, Toast.LENGTH_SHORT).show();
-                    Cart.cartItems.clear();
-                }
+                    if (position == 1) {
+                        Cart.cartItems.clear();
+                    }
                 }
             }
         });

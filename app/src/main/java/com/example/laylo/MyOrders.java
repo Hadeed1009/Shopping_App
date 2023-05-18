@@ -11,7 +11,6 @@ public class MyOrders extends Fragment {
     public MyOrders() {
         // Required empty public constructor
     }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

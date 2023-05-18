@@ -23,13 +23,16 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        // Initialize Firebase Auth
+        mAuth=FirebaseAuth.getInstance();
+
+        // Initialize email and password text views
         login_email=findViewById(R.id.login_email);
         login_password=findViewById(R.id.login_password);
 
+        // Initialize login and sign up buttons
         btn_login=findViewById(R.id.btn_login);
         login_signUp=findViewById(R.id.login_signUp);
-
-        mAuth=FirebaseAuth.getInstance();
 
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,7 +57,6 @@ public class Login extends AppCompatActivity {
             startActivity(new Intent(Login.this,MainActivity.class));
         }
     }
-
 
     private void loginUser(){
         String email=login_email.getText().toString();

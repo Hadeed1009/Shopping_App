@@ -18,7 +18,6 @@ import com.example.laylo.Modelss.CategoryListModel;
 import java.util.ArrayList;
 
 public class CategoryListActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

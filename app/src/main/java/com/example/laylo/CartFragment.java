@@ -89,7 +89,6 @@ public class CartFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 //Go to Address fragment
-
                 Bundle bundle = new Bundle();
                 bundle.putInt("position",1);
                 AddressBottomSheet addressBottomSheet = new AddressBottomSheet();
