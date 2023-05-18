@@ -13,7 +13,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
-        android:fontFamily="@font/inter_bold"
         android:gravity="center"
         android:text="Lay Lo"
         android:textColor="#000000"
@@ -34,10 +33,9 @@
         app:layout_constraintTop_toBottomOf="@+id/Discount">
 
         <TextView
-            android:id="@+id/textView12"
+            android:id="@+id/Person2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/inter_bold"
             android:text="Login"
             android:textColor="#000000"
             android:textSize="20sp"
@@ -48,7 +46,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:fontFamily="@font/inter_bold"
             android:text="Email"
             android:textColor="#000000"
             android:textSize="16sp" />
@@ -68,11 +65,10 @@
             android:textColorHint="#8F8E8E" />
 
         <TextView
-            android:id="@+id/textView14"
+            android:id="@+id/Person3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:fontFamily="@font/inter_bold"
             android:text="Password"
             android:textColor="#000000"
             android:textSize="16sp" />
@@ -91,23 +87,11 @@
             android:textColor="#000000"
             android:textColorHint="#8F8E8E" />
 
-        <TextView
-            android:id="@+id/textView15"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/inter_bold"
-            android:gravity="right"
-            android:text="Forgot your password?"
-            android:textColor="@color/orange"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
         <Button
             android:id="@+id/btn_login"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="50dp"
             android:background="@drawable/btn_bg"
             android:text="Login"
             android:textColor="#FFFFFF" />

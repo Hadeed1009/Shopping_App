@@ -82,7 +82,6 @@ public class CategoryListActivity extends AppCompatActivity {
                 intent.putExtra("description", model.getDescription());
                 intent.putExtra("Position",++position); //item position
                 intent.putExtra("position",CatPosition); //category
-//                Toast.makeText(CategoryListActivity.this, "hello"+ ++position, Toast.LENGTH_SHORT).show();
                 startActivity(intent);
             }
 

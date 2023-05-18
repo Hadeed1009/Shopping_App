@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-
 public class InitialCartFragment extends Fragment {
     public InitialCartFragment() {
         // Required empty public constructor

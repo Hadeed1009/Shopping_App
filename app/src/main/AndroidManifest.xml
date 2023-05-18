@@ -33,9 +33,6 @@
             android:name=".Login"
             android:exported="true" />
         <activity
-            android:name=".Booking"
-            android:exported="false" />
-        <activity
             android:name=".ItemDescription"
             android:exported="false" />
         <activity

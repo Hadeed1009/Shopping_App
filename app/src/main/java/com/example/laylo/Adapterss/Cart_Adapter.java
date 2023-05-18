@@ -28,7 +28,7 @@ public class Cart_Adapter extends RecyclerView.Adapter<Cart_Adapter.viewholder>{
     ArrayList<CartModel> list;
     Context context;
     TextView subTotal,discount,totalAmount;
-
+    int index; //for cart item index
     public Cart_Adapter(ArrayList<CartModel> list, Context context, TextView Subtotal, TextView Discount, TextView TotalAmount) {
         this.list = list;
         this.context = context;
@@ -45,6 +45,7 @@ public class Cart_Adapter extends RecyclerView.Adapter<Cart_Adapter.viewholder>{
 
     @Override
     public void onBindViewHolder(@NonNull Cart_Adapter.viewholder holder, @SuppressLint("RecyclerView") int position) {
+
             CartModel model = list.get(position);
             holder.cartItem_img.setImageResource(model.getImg());
             holder.cartItem_name.setText(model.getName());
@@ -61,20 +62,23 @@ public class Cart_Adapter extends RecyclerView.Adapter<Cart_Adapter.viewholder>{
                 new Cart();
                 for(cartItem findItem : Cart.cartItems){
                     if(findItem.name.equals(model.getName())){
-                        int qty = Integer.parseInt(findItem.quantity);
-                        int Old_price = Integer.parseInt(findItem.price)/qty; //Actual Price
-                        qty = qty+1;
-                        int New_price = Old_price*qty;
-                        findItem.quantity= Integer.toString(qty); //update quantity
-                        findItem.price = Integer.toString(New_price); //update price also
-                        //applying changes in adapter model
-                        list.get(position).setQuantity(Integer.toString(qty));
-                        list.get(position).setPrice(Integer.toString(New_price));
-                        notifyDataSetChanged();
-                        //Update Order Details
-                        UpdateOrderDetails();
+                        index = Cart.cartItems.indexOf(findItem);
                     }
                 }
+                //extracting element from the found index
+                cartItem Itemfound = Cart.cartItems.get(index);
+                int qty = Integer.parseInt(Itemfound.quantity);
+                int Old_price = Integer.parseInt(Itemfound.price)/qty; //Actual Price
+                qty = qty+1;
+                int New_price = Old_price*qty;
+                Itemfound.quantity= Integer.toString(qty); //update quantity
+                Itemfound.price = Integer.toString(New_price); //update price also
+                //applying changes in adapter model
+                list.get(position).setQuantity(Integer.toString(qty));
+                list.get(position).setPrice(Integer.toString(New_price));
+                notifyDataSetChanged();
+                //Update Order Details
+                UpdateOrderDetails();
             }
         });
 
@@ -85,28 +89,33 @@ public class Cart_Adapter extends RecyclerView.Adapter<Cart_Adapter.viewholder>{
                 new Cart();
                 for(cartItem findItem : Cart.cartItems){
                     if(findItem.name.equals(model.getName())){
-                        int qty = Integer.parseInt(findItem.quantity);
-                        int Old_price = Integer.parseInt(findItem.price)/qty; //Actual Price
-                        qty = qty-1;
-                        //in case of qty == 0
-                        if(qty==0){
-                            Cart.cartItems.remove(findItem);
-                            list.remove(position);
-                            notifyItemRemoved(position);
-                        }
-                        else{
-                            int New_price = Old_price*qty;
-                            findItem.quantity= Integer.toString(qty); //update quanitiy
-                            findItem.price = Integer.toString(New_price); //update price also
-//                      applying changes in adapter model
-                            list.get(position).setQuantity(Integer.toString(qty));
-                            list.get(position).setPrice(Integer.toString(New_price));
-                            notifyDataSetChanged();
-                        }
-                        //Update Order Details
-                        UpdateOrderDetails();
+                        index = Cart.cartItems.indexOf(findItem);
                     }
                 }
+                //extracting element from the found index
+                cartItem foundItem = Cart.cartItems.get(index);
+                int qty = Integer.parseInt(foundItem.quantity);
+                int Old_price = Integer.parseInt(foundItem.price)/qty; //Actual Price
+                qty = qty-1;
+                //in case of qty == 0
+                if(qty==0){
+                    list.remove(position); //remove from adapter list
+                    Cart.cartItems.remove(index); // remove from cart list
+                    notifyItemRemoved(position);
+                    notifyItemRangeChanged(position,getItemCount());
+                    notifyDataSetChanged();
+                }
+                else{
+                    int New_price = Old_price*qty;
+                    foundItem.quantity= Integer.toString(qty); //update quantity
+                    foundItem.price = Integer.toString(New_price); //update price also
+                    //applying changes in adapter model
+                    list.get(position).setQuantity(Integer.toString(qty));
+                    list.get(position).setPrice(Integer.toString(New_price));
+                    notifyDataSetChanged();
+                }
+                //Update Order Details
+                UpdateOrderDetails();
             }
         });
     }

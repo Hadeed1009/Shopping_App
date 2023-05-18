@@ -44,6 +44,7 @@ public class AddressBottomSheet extends BottomSheetDialogFragment {
         cust_zipCode = view.findViewById(R.id.cust_zipCode);
         cust_country = view.findViewById(R.id.cust_country);
 
+        //Validate the fields
         Confirm_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

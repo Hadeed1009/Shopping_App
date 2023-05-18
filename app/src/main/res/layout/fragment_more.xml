@@ -13,7 +13,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:fontFamily="@font/inter"
         android:gravity="center"
         android:text="Contact Us"
         android:textColor="@color/black"
@@ -21,12 +20,11 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/Person1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="30dp"
-        android:fontFamily="@font/inter"
         android:text="Hadeed Naeem Haider"
         android:textColor="@color/black"
         android:textSize="20sp" />
@@ -45,7 +43,7 @@
             android:src="@drawable/mail" />
 
         <TextView
-            android:id="@+id/textView11"
+            android:id="@+id/email1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
@@ -56,12 +54,11 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/textView12"
+        android:id="@+id/Person2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="30dp"
-        android:fontFamily="@font/inter"
         android:text="Hafsa Khalid"
         android:textColor="@color/black"
         android:textSize="20sp" />
@@ -80,7 +77,7 @@
             android:src="@drawable/mail" />
 
         <TextView
-            android:id="@+id/textView13"
+            android:id="@+id/email2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
@@ -91,12 +88,11 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/textView14"
+        android:id="@+id/Person3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="30dp"
-        android:fontFamily="@font/inter"
         android:text="Saleha Faisal"
         android:textColor="@color/black"
         android:textSize="20sp" />
@@ -115,7 +111,7 @@
             android:src="@drawable/mail" />
 
         <TextView
-            android:id="@+id/textView15"
+            android:id="@+id/email3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
@@ -126,12 +122,11 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/textView16"
+        android:id="@+id/Person4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="30dp"
-        android:fontFamily="@font/inter"
         android:text="Kanwal Shahzadi"
         android:textColor="@color/black"
         android:textSize="20sp" />
@@ -150,7 +145,7 @@
             android:src="@drawable/mail" />
 
         <TextView
-            android:id="@+id/textView17"
+            android:id="@+id/email4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"

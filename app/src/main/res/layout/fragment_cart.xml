@@ -109,7 +109,7 @@
                 android:padding="8sp">
 
                 <TextView
-                    android:id="@+id/textView12"
+                    android:id="@+id/Person2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"

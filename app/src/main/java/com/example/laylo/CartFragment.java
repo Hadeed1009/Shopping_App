@@ -88,15 +88,21 @@ public class CartFragment extends Fragment {
         placeOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Go to Address fragment
-                Bundle bundle = new Bundle();
-                bundle.putInt("position",1);
-                AddressBottomSheet addressBottomSheet = new AddressBottomSheet();
-                addressBottomSheet.setArguments(bundle);
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                FragmentTransaction transaction = fragmentManager.beginTransaction();
-                transaction.replace(R.id.fragmentLayout, addressBottomSheet);
-                transaction.commit();
+                //Check if cart is empty
+                if(Cart.cartItems.size()==0){
+                    Toast.makeText(getActivity(),"Cannot Place order, Cart is empty!",Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    //Go to Address fragment
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("position",1);
+                    AddressBottomSheet addressBottomSheet = new AddressBottomSheet();
+                    addressBottomSheet.setArguments(bundle);
+                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                    FragmentTransaction transaction = fragmentManager.beginTransaction();
+                    transaction.replace(R.id.fragmentLayout, addressBottomSheet);
+                    transaction.commit();
+                }
             }
         });
         return view;
